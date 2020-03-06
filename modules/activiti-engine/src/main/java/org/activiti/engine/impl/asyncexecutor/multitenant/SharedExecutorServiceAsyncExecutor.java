@@ -53,6 +53,7 @@ public class SharedExecutorServiceAsyncExecutor extends DefaultAsyncJobExecutor 
     
     setExecuteAsyncRunnableFactory(new ExecuteAsyncRunnableFactory() {
       
+      @Override
       public Runnable createExecuteAsyncRunnable(JobEntity jobEntity, CommandExecutor commandExecutor) {
         
         // Here, the runnable will be created by for example the acquire thread, which has already set the current id.
@@ -71,6 +72,7 @@ public class SharedExecutorServiceAsyncExecutor extends DefaultAsyncJobExecutor 
     return timerJobAcquisitionThreads.keySet();
   }
   
+  @Override
   public void addTenantAsyncExecutor(String tenantId, boolean startExecutor) {
     
     TenantAwareAcquireTimerJobsRunnable timerRunnable = new TenantAwareAcquireTimerJobsRunnable(this, tenantInfoHolder, tenantId);

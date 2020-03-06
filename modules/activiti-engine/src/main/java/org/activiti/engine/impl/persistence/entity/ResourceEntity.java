@@ -31,10 +31,12 @@ public class ResourceEntity implements PersistentObject, Serializable {
   protected String deploymentId;
   protected boolean generated = false;
   
+  @Override
   public String getId() {
     return id;
   }
   
+  @Override
   public void setId(String id) {
     this.id = id;
   }
@@ -63,6 +65,7 @@ public class ResourceEntity implements PersistentObject, Serializable {
     this.deploymentId = deploymentId;
   }
 
+  @Override
   public Object getPersistentState() {
     return ResourceEntity.class;
   }

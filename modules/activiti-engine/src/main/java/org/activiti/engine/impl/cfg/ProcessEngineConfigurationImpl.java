@@ -608,6 +608,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
   
   // buildProcessEngine ///////////////////////////////////////////////////////
   
+  @Override
   public ProcessEngine buildProcessEngine() {
     init();
     return new ProcessEngineImpl(this);
@@ -957,11 +958,13 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
 	protected Configuration parseCustomMybatisXMLMappers(Configuration configuration) {
 	  if (getCustomMybatisXMLMappers() != null)
     // see XMLConfigBuilder.mapperElement()
-    for(String resource: getCustomMybatisXMLMappers()){
-      XMLMapperBuilder mapperParser = new XMLMapperBuilder(getResourceAsStream(resource), 
-          configuration, resource, configuration.getSqlFragments());
-      mapperParser.parse();
-    }
+      {
+          for(String resource: getCustomMybatisXMLMappers()){
+            XMLMapperBuilder mapperParser = new XMLMapperBuilder(getResourceAsStream(resource),
+                configuration, resource, configuration.getSqlFragments());
+            mapperParser.parse();
+          }
+      }
     return configuration;
   }
   
@@ -1759,6 +1762,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
 
+  @Override
   public RepositoryService getRepositoryService() {
     return repositoryService;
   }
@@ -1768,6 +1772,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
   
+  @Override
   public RuntimeService getRuntimeService() {
     return runtimeService;
   }
@@ -1777,6 +1782,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
   
+  @Override
   public HistoryService getHistoryService() {
     return historyService;
   }
@@ -1786,6 +1792,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
   
+  @Override
   public IdentityService getIdentityService() {
     return identityService;
   }
@@ -1795,6 +1802,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
   
+  @Override
   public TaskService getTaskService() {
     return taskService;
   }
@@ -1804,6 +1812,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
   
+  @Override
   public FormService getFormService() {
     return formService;
   }
@@ -1813,6 +1822,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
   
+  @Override
   public ManagementService getManagementService() {
     return managementService;
   }
@@ -1822,6 +1832,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
   
+  @Override
   public DynamicBpmnService getDynamicBpmnService() {
     return dynamicBpmnService;
   }
@@ -1831,6 +1842,7 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
     return this;
   }
 
+  @Override
   public ProcessEngineConfiguration getProcessEngineConfiguration() {
     return this;
   }

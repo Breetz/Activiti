@@ -44,7 +44,8 @@ public class ExecuteJobsRunnable implements Runnable {
 		this.jobIds = jobIds;
 	}
 
-	public void run() {
+	@Override
+    public void run() {
 		if (jobIds != null) {
 			handleMultipleJobs();
 		}

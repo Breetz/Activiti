@@ -74,9 +74,11 @@ public abstract class HistoricScopeInstanceEntity implements PersistentObject, S
   public Long getDurationInMillis() {
     return durationInMillis;
   }
+  @Override
   public String getId() {
     return id;
   }
+  @Override
   public void setId(String id) {
     this.id = id;
   }

@@ -26,6 +26,7 @@ public interface StreamSource extends InputStreamProvider {
   /**
    * Creates a <b>NEW</b> {@link InputStream} to the provided resource.
    */
+  @Override
   InputStream getInputStream();
   
 }

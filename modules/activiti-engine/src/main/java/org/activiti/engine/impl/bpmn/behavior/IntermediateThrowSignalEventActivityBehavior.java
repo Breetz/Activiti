@@ -39,6 +39,7 @@ public class IntermediateThrowSignalEventActivityBehavior extends AbstractBpmnAc
     this.signalDefinition = signalDefinition;
   }
   
+  @Override
   public void execute(ActivityExecution execution) throws Exception {
     
     CommandContext commandContext = Context.getCommandContext();

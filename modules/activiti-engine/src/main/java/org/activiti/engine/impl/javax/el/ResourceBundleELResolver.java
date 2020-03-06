@@ -80,10 +80,12 @@ public class ResourceBundleELResolver extends ELResolver {
 		if (isResolvable(base)) {
 			final Enumeration<String> keys = ((ResourceBundle) base).getKeys();
 			return new Iterator<FeatureDescriptor>() {
-				public boolean hasNext() {
+				@Override
+                public boolean hasNext() {
 					return keys.hasMoreElements();
 				}
-				public FeatureDescriptor next() {
+				@Override
+                public FeatureDescriptor next() {
 					FeatureDescriptor feature = new FeatureDescriptor();
 					feature.setDisplayName(keys.nextElement());
 					feature.setName(feature.getDisplayName());
@@ -95,7 +97,8 @@ public class ResourceBundleELResolver extends ELResolver {
 					feature.setValue(RESOLVABLE_AT_DESIGN_TIME, true);
 					return feature;
 				}
-				public void remove() {
+				@Override
+                public void remove() {
 					throw new UnsupportedOperationException("Cannot remove");
 					
 				}

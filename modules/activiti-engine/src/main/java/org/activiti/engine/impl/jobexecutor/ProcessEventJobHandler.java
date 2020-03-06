@@ -26,10 +26,12 @@ public class ProcessEventJobHandler implements JobHandler {
   
   public final static String TYPE = "event"; 
 
+  @Override
   public String getType() {
     return TYPE;
   }
 
+  @Override
   public void execute(JobEntity job, String configuration, ExecutionEntity execution, CommandContext commandContext) {
     // lookup subscription:    
     EventSubscriptionEntity eventSubscription = commandContext.getEventSubscriptionEntityManager()

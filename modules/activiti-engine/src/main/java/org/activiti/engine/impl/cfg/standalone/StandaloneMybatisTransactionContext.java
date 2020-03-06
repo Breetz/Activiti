@@ -46,6 +46,7 @@ public class StandaloneMybatisTransactionContext implements TransactionContext {
     this.commandContext = commandContext;
   }
 
+  @Override
   public void addTransactionListener(TransactionState transactionState, TransactionListener transactionListener) {
     if (stateTransactionListeners==null) {
       stateTransactionListeners = new HashMap<TransactionState, List<TransactionListener>>();
@@ -58,6 +59,7 @@ public class StandaloneMybatisTransactionContext implements TransactionContext {
     transactionListeners.add(transactionListener);
   }
   
+  @Override
   public void commit() {
     
     log.debug("firing event committing...");
@@ -94,6 +96,7 @@ public class StandaloneMybatisTransactionContext implements TransactionContext {
       CommandExecutor commandExecutor = commandContext.getProcessEngineConfiguration().getCommandExecutor(); 
       CommandConfig commandConfig = new CommandConfig(false, TransactionPropagation.REQUIRES_NEW); 
       commandExecutor.execute(commandConfig, new Command<Void>() {
+        @Override
         public Void execute(CommandContext commandContext) {
           executeTransactionListeners(transactionListeners, commandContext);
           return null;
@@ -115,6 +118,7 @@ public class StandaloneMybatisTransactionContext implements TransactionContext {
     return commandContext.getSession(DbSqlSession.class);
   }
 
+  @Override
   public void rollback() {
     try {
       try {

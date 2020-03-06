@@ -38,6 +38,7 @@ public class FailedJobListener implements TransactionListener {
     this.jobId = jobId;
   }
   
+  @Override
   public void execute(CommandContext commandContext) {
     CommandConfig commandConfig = commandExecutor.getDefaultConfig().transactionRequiresNew();
 	  FailedJobCommandFactory failedJobCommandFactory = commandContext.getFailedJobCommandFactory();

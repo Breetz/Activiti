@@ -43,12 +43,15 @@ public interface VariableInstance extends ValueFields, PersistentObject, HasRevi
 
   void setTypeName(String typeName);
 
+  @Override
   String getProcessInstanceId();
 
+  @Override
   String getTaskId();
 
   void setTaskId(String taskId);
 
+  @Override
   String getExecutionId();
 
 }

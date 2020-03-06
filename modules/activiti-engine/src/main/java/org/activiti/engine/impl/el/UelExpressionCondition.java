@@ -40,6 +40,7 @@ public class UelExpressionCondition implements Condition {
     this.initialConditionExpression = conditionExpression;
   }
 
+  @Override
   public boolean evaluate(String sequenceFlowId, DelegateExecution execution) {
     String conditionExpression = null;
     if (Context.getProcessEngineConfiguration().isEnableProcessDefinitionInfoCache()) {

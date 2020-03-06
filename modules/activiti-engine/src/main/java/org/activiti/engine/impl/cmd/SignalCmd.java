@@ -36,6 +36,7 @@ public class SignalCmd extends NeedsActiveExecutionCmd<Object> {
     this.processVariables = processVariables;
   }
   
+  @Override
   protected Object execute(CommandContext commandContext, ExecutionEntity execution) {
     if(processVariables != null) {
       execution.setVariables(processVariables);

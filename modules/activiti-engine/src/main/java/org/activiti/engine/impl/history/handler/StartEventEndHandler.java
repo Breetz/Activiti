@@ -24,6 +24,7 @@ import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
  */
 public class StartEventEndHandler implements ExecutionListener {
 
+  @Override
   public void notify(DelegateExecution execution) throws Exception {
     String activityId = ((ExecutionEntity) execution).getActivityId();
     

@@ -33,6 +33,7 @@ public class ResolveTaskCmd extends NeedsActiveTaskCmd<Void> {
     this.variables = variables;
   }
   
+  @Override
   protected Void execute(CommandContext commandContext, TaskEntity task) {
     if (variables != null) {
       task.setVariables(variables);

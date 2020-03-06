@@ -33,6 +33,7 @@ public class ProcessDefinitionInfoEntity implements HasRevision, PersistentObjec
   protected int revision = 1;
   protected String infoJsonId;
 
+  @Override
   public Object getPersistentState() {
     Map<String, Object> persistentState = new HashMap<String, Object>();
     persistentState.put("processDefinitionId", this.processDefinitionId);
@@ -42,10 +43,12 @@ public class ProcessDefinitionInfoEntity implements HasRevision, PersistentObjec
 
   // getters and setters //////////////////////////////////////////////////////
 
+  @Override
   public String getId() {
     return id;
   }
 
+  @Override
   public void setId(String id) {
     this.id = id;
   }
@@ -58,14 +61,17 @@ public class ProcessDefinitionInfoEntity implements HasRevision, PersistentObjec
     this.processDefinitionId = processDefinitionId;
   }
 
+  @Override
   public int getRevision() {
     return revision;
   }
   
+  @Override
   public int getRevisionNext() {
     return revision + 1;
   }
   
+  @Override
   public void setRevision(int revision) {
     this.revision = revision;
   }

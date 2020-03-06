@@ -29,6 +29,7 @@ public class TaskElContext extends SimpleContext {
     this.taskVariableMapper = new TaskVariableMapper(task);
   }
 
+  @Override
   public VariableMapper getVariableMapper() {
     return taskVariableMapper;
   }

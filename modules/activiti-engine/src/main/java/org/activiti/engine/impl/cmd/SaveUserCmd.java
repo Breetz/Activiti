@@ -32,6 +32,7 @@ public class SaveUserCmd implements Command<Void>, Serializable {
     this.user = user;
   }
   
+  @Override
   public Void execute(CommandContext commandContext) {
     if(user == null) {
       throw new ActivitiIllegalArgumentException("user is null");

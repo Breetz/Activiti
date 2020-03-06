@@ -30,10 +30,12 @@ import org.activiti.engine.impl.pvm.process.ScopeImpl;
  */
 public class MessageEventDefinitionParseHandler extends AbstractBpmnParseHandler<MessageEventDefinition> {
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return MessageEventDefinition.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, MessageEventDefinition messageDefinition) {
     
     BpmnModel bpmnModel = bpmnParse.getBpmnModel();

@@ -97,10 +97,12 @@ public class MapELResolver extends ELResolver {
 			Map<?, ?> map = (Map<?, ?>) base;
 			final Iterator<?> keys = map.keySet().iterator();
 			return new Iterator<FeatureDescriptor>() {
-				public boolean hasNext() {
+				@Override
+                public boolean hasNext() {
 					return keys.hasNext();
 				}
-				public FeatureDescriptor next() {
+				@Override
+                public FeatureDescriptor next() {
 					Object key = keys.next();
 					FeatureDescriptor feature = new FeatureDescriptor();
 					feature.setDisplayName(key == null ? "null" : key.toString());
@@ -114,7 +116,8 @@ public class MapELResolver extends ELResolver {
 					return feature;
 					
 				}
-				public void remove() {
+				@Override
+                public void remove() {
 					throw new UnsupportedOperationException("cannot remove");
 				}
 			};

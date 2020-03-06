@@ -50,6 +50,7 @@ public class DefaultAsyncJobExecutor extends AbstractAsyncJobExecutor {
   /** The time (in seconds) that is waited to gracefully shut down the threadpool used for job execution */
   protected long secondsToWaitOnShutdown = 60L;
   
+  @Override
   protected boolean executeAsyncJob(Runnable runnable) {
     try {
       executorService.execute(runnable);
@@ -62,14 +63,17 @@ public class DefaultAsyncJobExecutor extends AbstractAsyncJobExecutor {
     }
   }
   
+  @Override
   protected Runnable createRunnableForJob(final JobEntity job) {
     return executeAsyncRunnableFactory.createExecuteAsyncRunnable(job, commandExecutor);
   }
  
+  @Override
   protected void unlockJob(final JobEntity job, CommandContext commandContext) {
     commandContext.getJobEntityManager().unacquireJob(job.getId());
   }
   
+  @Override
   protected void startExecutingAsyncJobs() {
     if (threadPoolQueue==null) {
       log.info("Creating thread pool queue of size {}", queueSize);
@@ -86,6 +90,7 @@ public class DefaultAsyncJobExecutor extends AbstractAsyncJobExecutor {
     startJobAcquisitionThread();
   }
     
+  @Override
   protected void stopExecutingAsyncJobs() {
     stopJobAcquisitionThread();
     

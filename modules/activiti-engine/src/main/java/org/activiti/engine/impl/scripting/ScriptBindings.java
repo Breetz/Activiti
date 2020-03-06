@@ -57,6 +57,7 @@ public class ScriptBindings implements Bindings {
     this.storeScriptVariables = storeScriptVariables;
   }
 
+  @Override
   public boolean containsKey(Object key) {
     for (Resolver scriptResolver: scriptResolvers) {
       if (scriptResolver.containsKey(key)) {
@@ -66,6 +67,7 @@ public class ScriptBindings implements Bindings {
     return defaultBindings.containsKey(key);
   }
 
+  @Override
   public Object get(Object key) {
     for (Resolver scriptResolver: scriptResolvers) {
       if (scriptResolver.containsKey(key)) {
@@ -75,6 +77,7 @@ public class ScriptBindings implements Bindings {
     return defaultBindings.get(key);
   }
 
+  @Override
   public Object put(String name, Object value) {
     if (storeScriptVariables) {
       Object oldValue = null;
@@ -87,26 +90,32 @@ public class ScriptBindings implements Bindings {
     return defaultBindings.put(name, value);
   }
 
+  @Override
   public Set<Map.Entry<String, Object>> entrySet() {
     return variableScope.getVariables().entrySet();
   }
 
+  @Override
   public Set<String> keySet() {
     return variableScope.getVariables().keySet();
   }
 
+  @Override
   public int size() {
     return variableScope.getVariables().size();
   }
 
+  @Override
   public Collection<Object> values() {
     return variableScope.getVariables().values();
   }
 
+  @Override
   public void putAll(Map< ? extends String, ? extends Object> toMerge) {
     throw new UnsupportedOperationException();
   }
 
+  @Override
   public Object remove(Object key) {
     if (UNSTORED_KEYS.contains(key)) {
       return null;
@@ -114,14 +123,17 @@ public class ScriptBindings implements Bindings {
     return defaultBindings.remove(key);
   }
 
+  @Override
   public void clear() {
     throw new UnsupportedOperationException();
   }
 
+  @Override
   public boolean containsValue(Object value) {
     throw new UnsupportedOperationException();
   }
 
+  @Override
   public boolean isEmpty() {
     throw new UnsupportedOperationException();
   }

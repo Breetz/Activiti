@@ -32,6 +32,7 @@ public class SaveGroupCmd implements Command<Void>, Serializable {
     this.group = group;
   }
   
+  @Override
   public Void execute(CommandContext commandContext) {
     if(group == null) {
       throw new ActivitiIllegalArgumentException("group is null");

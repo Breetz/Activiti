@@ -48,6 +48,7 @@ public class DefaultJobExecutor extends JobExecutor {
   protected BlockingQueue<Runnable> threadPoolQueue;
   protected ThreadPoolExecutor threadPoolExecutor;
     
+  @Override
   protected void startExecutingJobs() {
     if (threadPoolQueue==null) {
       threadPoolQueue = new ArrayBlockingQueue<Runnable>(queueSize);
@@ -59,6 +60,7 @@ public class DefaultJobExecutor extends JobExecutor {
     startJobAcquisitionThread(); 
   }
     
+  @Override
   protected void stopExecutingJobs() {
     stopJobAcquisitionThread();
     
@@ -78,6 +80,7 @@ public class DefaultJobExecutor extends JobExecutor {
     threadPoolExecutor = null;
   }
   
+  @Override
   public void executeJobs(List<String> jobIds) {
     try {
       threadPoolExecutor.execute(new ExecuteJobsRunnable(this, jobIds));

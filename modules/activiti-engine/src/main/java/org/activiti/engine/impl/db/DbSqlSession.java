@@ -368,6 +368,7 @@ public class DbSqlSession implements Session {
       }
     }
     
+    @Override
     public Class<? extends PersistentObject> getPersistentObjectClass() {
 			return persistentObjectClass;
 		}

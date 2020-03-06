@@ -41,6 +41,7 @@ public class SimpleDataInputAssociation extends AbstractDataAssociation {
     this.assignments.add(assignment);
   }
 
+  @Override
   public void evaluate(ActivityExecution execution) {
     for (Assignment assignment : this.assignments) {
       assignment.evaluate(execution);

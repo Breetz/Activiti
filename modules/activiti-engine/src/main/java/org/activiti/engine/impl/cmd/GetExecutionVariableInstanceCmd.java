@@ -50,6 +50,7 @@ public class GetExecutionVariableInstanceCmd implements Command<VariableInstance
     this.withLocalizationFallback = withLocalizationFallback;
   }
 
+  @Override
   public VariableInstance execute(CommandContext commandContext) {
     if (executionId == null) {
       throw new ActivitiIllegalArgumentException("executionId is null");

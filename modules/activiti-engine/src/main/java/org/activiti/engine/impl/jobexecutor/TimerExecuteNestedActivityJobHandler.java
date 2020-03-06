@@ -39,10 +39,12 @@ public class TimerExecuteNestedActivityJobHandler extends TimerEventHandler impl
   public static final String PROPERTYNAME_TIMER_ACTIVITY_ID = "activityId";
   public static final String PROPERTYNAME_END_DATE_EXPRESSION = "timerEndDate";
 
+  @Override
   public String getType() {
     return TYPE;
   }
   
+  @Override
   public void execute(JobEntity job, String configuration, ExecutionEntity execution, CommandContext commandContext) {
 
     String nestedActivityId = TimerEventHandler.getActivityIdFromConfiguration(configuration);

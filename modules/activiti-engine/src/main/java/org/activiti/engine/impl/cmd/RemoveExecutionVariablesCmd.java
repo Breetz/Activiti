@@ -22,6 +22,7 @@ public class RemoveExecutionVariablesCmd extends NeedsActiveExecutionCmd<Void> {
     this.isLocal = isLocal;
   }
   
+  @Override
   protected Void execute(CommandContext commandContext, ExecutionEntity execution) {
 
     if (isLocal) {

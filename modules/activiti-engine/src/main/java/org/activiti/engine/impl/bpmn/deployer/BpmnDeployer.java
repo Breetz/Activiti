@@ -92,6 +92,7 @@ public class BpmnDeployer implements Deployer {
   protected BpmnParser bpmnParser;
   protected IdGenerator idGenerator;
 
+  @Override
   public void deploy(DeploymentEntity deployment, Map<String, Object> deploymentSettings) {
     log.debug("Processing deployment {}", deployment.getName());
     
@@ -379,7 +380,7 @@ public class BpmnDeployer implements Deployer {
       
       Set<String> messageNames = new HashSet<String>();
       for (EventSubscriptionDeclaration eventDefinition : eventDefinitions) {
-        if(eventDefinition.getEventType().equals("message") && eventDefinition.isStartEvent()) {
+        if("message".equals(eventDefinition.getEventType()) && eventDefinition.isStartEvent()) {
           
           if (!messageNames.contains(eventDefinition.getEventName())) {
             messageNames.add(eventDefinition.getEventName());
@@ -456,7 +457,7 @@ public class BpmnDeployer implements Deployer {
      List<EventSubscriptionDeclaration> eventDefinitions = (List<EventSubscriptionDeclaration>) processDefinition.getProperty(BpmnParse.PROPERTYNAME_EVENT_SUBSCRIPTION_DECLARATION);
      if(eventDefinitions != null) {     
        for (EventSubscriptionDeclaration eventDefinition : eventDefinitions) {
-         if(eventDefinition.getEventType().equals("signal") && eventDefinition.isStartEvent()) {
+         if("signal".equals(eventDefinition.getEventType()) && eventDefinition.isStartEvent()) {
         	 
         	 SignalEventSubscriptionEntity subscriptionEntity = new SignalEventSubscriptionEntity();
         	 subscriptionEntity.setEventName(eventDefinition.getEventName());
@@ -473,7 +474,9 @@ public class BpmnDeployer implements Deployer {
   }
   
   protected void createLocalizationValues(String processDefinitionId, Process process) {
-    if (process == null) return;
+    if (process == null) {
+        return;
+    }
     
     CommandContext commandContext = Context.getCommandContext();
     DynamicBpmnService dynamicBpmnService = commandContext.getProcessEngineConfiguration().getDynamicBpmnService();
@@ -525,7 +528,9 @@ public class BpmnDeployer implements Deployer {
   protected boolean localizeFlowElements(Collection<FlowElement> flowElements, ObjectNode infoNode) {
     boolean localizationValuesChanged = false;
     
-    if (flowElements == null) return localizationValuesChanged;
+    if (flowElements == null) {
+        return localizationValuesChanged;
+    }
     
     CommandContext commandContext = Context.getCommandContext();
     DynamicBpmnService dynamicBpmnService = commandContext.getProcessEngineConfiguration().getDynamicBpmnService();

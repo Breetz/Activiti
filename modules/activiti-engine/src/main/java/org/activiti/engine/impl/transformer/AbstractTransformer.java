@@ -25,6 +25,7 @@ public abstract class AbstractTransformer implements Transformer {
   /**
    * {@inheritDoc}
    */
+  @Override
   public Object transform(Object anObject) {
     try {
       return this.primTransform(anObject);

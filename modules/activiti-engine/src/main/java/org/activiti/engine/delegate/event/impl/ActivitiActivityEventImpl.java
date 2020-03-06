@@ -41,7 +41,8 @@ public class ActivitiActivityEventImpl extends ActivitiEventImpl implements Acti
 	  this.activityId = activityId;
   }
 	
-	public String getActivityName() {
+	@Override
+    public String getActivityName() {
 		return activityName;
 	}
 

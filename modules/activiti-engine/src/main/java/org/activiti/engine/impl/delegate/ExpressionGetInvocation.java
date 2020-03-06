@@ -29,7 +29,8 @@ public class ExpressionGetInvocation extends ExpressionInvocation {
     this.elContext = elContext;
   }
   
-  protected void invoke() throws Exception {    
+  @Override
+  protected void invoke() throws Exception {
     invocationResult = valueExpression.getValue(elContext);
   }
 

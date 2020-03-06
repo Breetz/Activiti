@@ -126,15 +126,18 @@ public class CompositeELResolver extends ELResolver {
 				return features;
 			}
 
-			public boolean hasNext() {
+			@Override
+            public boolean hasNext() {
 				return features().hasNext();
 			}
 
-			public FeatureDescriptor next() {
+			@Override
+            public FeatureDescriptor next() {
 				return features().next();
 			}
 
-			public void remove() {
+			@Override
+            public void remove() {
 				features().remove();
 			}
 		};

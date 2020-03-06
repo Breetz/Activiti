@@ -111,6 +111,7 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
         variableInstance.getTaskId(), variableInstance.getExecutionId(), variableInstance.getProcessInstanceId(), null);
   }
 
+  @Override
   public Object getPersistentState() {
     Map<String, Object> persistentState = new HashMap<String, Object>();
     if (longValue != null) {
@@ -134,6 +135,7 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
     return persistentState;
   }
   
+  @Override
   public int getRevisionNext() {
     return revision+1;
   }
@@ -145,10 +147,12 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
 
   // lazy initialized relations ///////////////////////////////////////////////
 
+  @Override
   public void setProcessInstanceId(String processInstanceId) {
     this.processInstanceId = processInstanceId;
   }
 
+  @Override
   public void setExecutionId(String executionId) {
     this.executionId = executionId;
   }
@@ -182,6 +186,7 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
 
   // value ////////////////////////////////////////////////////////////////////
 
+  @Override
   public Object getValue() {
     if (!type.isCachable() || cachedValue==null) {
       cachedValue = type.getValue(this);
@@ -189,6 +194,7 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
     return cachedValue;
   }
 
+  @Override
   public void setValue(Object value) {
     type.setValue(value, this);
     typeName = type.getTypeName();
@@ -197,47 +203,59 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
 
   // getters and setters //////////////////////////////////////////////////////
 
+  @Override
   public String getId() {
     return id;
   }
+  @Override
   public void setId(String id) {
     this.id = id;
   }
   
+  @Override
   public int getRevision() {
     return revision;
   }
+  @Override
   public void setRevision(int revision) {
     this.revision = revision;
   }
 
+  @Override
   public String getName() {
     return name;
   }
   
+  @Override
   public void setName(String name) {
     this.name = name;
   }
 
+  @Override
   public String getLocalizedName() {
     return localizedName;
   }
 
+  @Override
   public void setLocalizedName(String localizedName) {
     this.localizedName = localizedName;
   }
 
+  @Override
   public String getLocalizedDescription() {
     return localizedDescription;
   }
 
+  @Override
   public void setLocalizedDescription(String localizedDescription) {
     this.localizedDescription = localizedDescription;
   }
   
+  @Override
   public String getTypeName() {
     return typeName;
   }
+  @Override
   public void setTypeName(String typeName) {
     this.typeName = typeName;
   }
@@ -249,50 +267,64 @@ public class VariableInstanceEntity implements VariableInstance, BulkDeleteable,
     this.type = type;
   }
 
+  @Override
   public String getProcessInstanceId() {
     return processInstanceId;
   }
+  @Override
   public String getTaskId() {
     return taskId;
   }
+  @Override
   public void setTaskId(String taskId) {
     this.taskId = taskId;
   }
+  @Override
   public String getExecutionId() {
     return executionId;
   }
   
+  @Override
   public Long getLongValue() {
     return longValue;
   }
+  @Override
   public void setLongValue(Long longValue) {
     this.longValue = longValue;
   }
   
+  @Override
   public Double getDoubleValue() {
     return doubleValue;
   }
+  @Override
   public void setDoubleValue(Double doubleValue) {
     this.doubleValue = doubleValue;
   }
   
+  @Override
   public String getTextValue() {
     return textValue;
   }
+  @Override
   public void setTextValue(String textValue) {
     this.textValue = textValue;
   }
 
+  @Override
   public String getTextValue2() {
     return textValue2;
   }
+  @Override
   public void setTextValue2(String textValue2) {
     this.textValue2 = textValue2;
   }
 
+  @Override
   public Object getCachedValue() {
     return cachedValue;
   }
+  @Override
   public void setCachedValue(Object cachedValue) {
     this.cachedValue = cachedValue;
   }

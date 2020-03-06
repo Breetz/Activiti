@@ -105,6 +105,7 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
     byteArrayRef.delete();
   }
 
+  @Override
   public Object getPersistentState() {
   	HashMap<String, Object> persistentState = new HashMap<String, Object>();
   	
@@ -119,10 +120,12 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
   	return persistentState;
   }
   
+  @Override
   public int getRevisionNext() {
     return revision+1;
   }
 
+  @Override
   public Object getValue() {
     if (!variableType.isCachable() || cachedValue == null) {
       cachedValue = variableType.getValue(this);
@@ -159,18 +162,22 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
 
   // getters and setters //////////////////////////////////////////////////////
 
+  @Override
   public String getId() {
     return id;
   }
   
+  @Override
   public void setId(String id) {
     this.id = id;
   }
 
+  @Override
   public String getVariableTypeName() {
     return (variableType != null ? variableType.getTypeName() : null);
   }
 
+  @Override
   public String getVariableName() {
     return name;
   }
@@ -179,54 +186,67 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
     return variableType;
   }
 
+  @Override
   public int getRevision() {
     return revision;
   }
 
+  @Override
   public void setRevision(int revision) {
     this.revision = revision;
   }
 
+  @Override
   public String getName() {
     return name;
   }
 
+  @Override
   public Long getLongValue() {
     return longValue;
   }
 
+  @Override
   public void setLongValue(Long longValue) {
     this.longValue = longValue;
   }
 
+  @Override
   public Double getDoubleValue() {
     return doubleValue;
   }
 
+  @Override
   public void setDoubleValue(Double doubleValue) {
     this.doubleValue = doubleValue;
   }
 
+  @Override
   public String getTextValue() {
     return textValue;
   }
 
+  @Override
   public void setTextValue(String textValue) {
     this.textValue = textValue;
   }
 
+  @Override
   public String getTextValue2() {
     return textValue2;
   }
 
+  @Override
   public void setTextValue2(String textValue2) {
     this.textValue2 = textValue2;
   }
 
+  @Override
   public Object getCachedValue() {
     return cachedValue;
   }
 
+  @Override
   public void setCachedValue(Object cachedValue) {
     this.cachedValue = cachedValue;
   }
@@ -239,10 +259,12 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
     this.processInstanceId = processInstanceId;
   }
 
+  @Override
   public String getProcessInstanceId() {
     return processInstanceId;
   }
 
+  @Override
   public String getTaskId() {
     return taskId;
   }
@@ -251,6 +273,7 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
     this.taskId = taskId;
   }
   
+  @Override
   public Date getCreateTime() {
 		return createTime;
 	}
@@ -259,7 +282,8 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
 		this.createTime = createTime;
 	}
 
-	public Date getLastUpdatedTime() {
+	@Override
+    public Date getLastUpdatedTime() {
 		return lastUpdatedTime;
 	}
 
@@ -267,7 +291,8 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
 		this.lastUpdatedTime = lastUpdatedTime;
 	}
 
-	public String getExecutionId() {
+	@Override
+    public String getExecutionId() {
     return executionId;
   }
   
@@ -275,6 +300,7 @@ public class HistoricVariableInstanceEntity implements ValueFields, HistoricVari
     this.executionId = executionId;
   }
   
+  @Override
   public Date getTime() {
     return getCreateTime();
   }

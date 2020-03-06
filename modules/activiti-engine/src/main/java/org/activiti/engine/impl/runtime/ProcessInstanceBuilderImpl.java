@@ -39,37 +39,44 @@ public class ProcessInstanceBuilderImpl implements ProcessInstanceBuilder {
 		this.runtimeService = runtimeService;
 	}
 
-	public ProcessInstanceBuilder processDefinitionId(String processDefinitionId) {
+	@Override
+    public ProcessInstanceBuilder processDefinitionId(String processDefinitionId) {
 	  this.processDefinitionId = processDefinitionId;
 		return this;
 	}
 
-	public ProcessInstanceBuilder processDefinitionKey(String processDefinitionKey) {
+	@Override
+    public ProcessInstanceBuilder processDefinitionKey(String processDefinitionKey) {
 	  this.processDefinitionKey = processDefinitionKey;
     return this;
 	}
 
-	public ProcessInstanceBuilder processInstanceName(String processInstanceName) {
+	@Override
+    public ProcessInstanceBuilder processInstanceName(String processInstanceName) {
 	  this.processInstanceName = processInstanceName;
     return this;
 	}
 
-	public ProcessInstanceBuilder businessKey(String businessKey) {
+	@Override
+    public ProcessInstanceBuilder businessKey(String businessKey) {
 	  this.businessKey = businessKey;
     return this;
 	}
 
-	public ProcessInstanceBuilder tenantId(String tenantId) {
+	@Override
+    public ProcessInstanceBuilder tenantId(String tenantId) {
 	  this.tenantId = tenantId;
     return this;
 	}
 
-	public ProcessInstanceBuilder addVariable(String variableName, Object value) {
+	@Override
+    public ProcessInstanceBuilder addVariable(String variableName, Object value) {
 	  this.variables.put(variableName, value);
     return this;
 	}
 
-	public ProcessInstance start() {
+	@Override
+    public ProcessInstance start() {
 	  if (processDefinitionId == null && processDefinitionKey == null) {
 	    throw new ActivitiIllegalArgumentException("processDefinitionKey and processDefinitionId are null");
 	  }

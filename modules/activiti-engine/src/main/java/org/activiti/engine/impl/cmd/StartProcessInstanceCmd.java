@@ -63,6 +63,7 @@ public class StartProcessInstanceCmd<T> implements Command<ProcessInstance>, Ser
     this.processInstanceName = processInstanceBuilder.getProcessInstanceName();
   }
   
+  @Override
   public ProcessInstance execute(CommandContext commandContext) {
     DeploymentManager deploymentManager = commandContext
       .getProcessEngineConfiguration()

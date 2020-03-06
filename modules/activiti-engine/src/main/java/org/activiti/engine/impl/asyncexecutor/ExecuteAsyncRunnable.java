@@ -44,6 +44,7 @@ public class ExecuteAsyncRunnable implements Runnable {
     this.commandExecutor = commandExecutor;
   }
 
+  @Override
   public void run() {
     boolean lockNotNeededOrSuccess = lockJobIfNeeded();
     if (lockNotNeededOrSuccess) {
@@ -82,6 +83,7 @@ public class ExecuteAsyncRunnable implements Runnable {
       commandContext.getJobEntityManager().unacquireJob(job.getId());
     } else {
       commandExecutor.execute(new Command<Void>() {
+        @Override
         public Void execute(CommandContext commandContext) {
           commandContext.getJobEntityManager().unacquireJob(job.getId());
           return null;

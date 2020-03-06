@@ -40,6 +40,7 @@ public class GroupEntity implements Group, Serializable, PersistentObject, HasRe
     this.id = id;
   }
   
+  @Override
   public Object getPersistentState() {
     Map<String, Object> persistentState = new HashMap<String, Object>();
     persistentState.put("name", name);
@@ -47,31 +48,40 @@ public class GroupEntity implements Group, Serializable, PersistentObject, HasRe
     return persistentState;
   }
   
+  @Override
   public int getRevisionNext() {
     return revision+1;
   }
 
+  @Override
   public String getId() {
     return id;
   }
+  @Override
   public void setId(String id) {
     this.id = id;
   }
+  @Override
   public String getName() {
     return name;
   }
+  @Override
   public void setName(String name) {
     this.name = name;
   }
+  @Override
   public String getType() {
     return type;
   }
+  @Override
   public void setType(String type) {
     this.type = type;
   }
+  @Override
   public int getRevision() {
     return revision;
   }
+  @Override
   public void setRevision(int revision) {
     this.revision = revision;
   }

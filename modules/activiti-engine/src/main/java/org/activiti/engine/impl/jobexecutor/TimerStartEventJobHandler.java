@@ -36,10 +36,12 @@ public class TimerStartEventJobHandler extends TimerEventHandler implements JobH
 
   public static final String TYPE = "timer-start-event";
 
+  @Override
   public String getType() {
     return TYPE;
   }
   
+  @Override
   public void execute(JobEntity job, String configuration, ExecutionEntity execution, CommandContext commandContext) {
     
     DeploymentManager deploymentManager = Context

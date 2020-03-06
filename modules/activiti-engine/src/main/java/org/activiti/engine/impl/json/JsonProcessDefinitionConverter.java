@@ -24,6 +24,7 @@ import org.activiti.engine.repository.ProcessDefinition;
  */
 public class JsonProcessDefinitionConverter extends JsonObjectConverter<ProcessDefinition> {
 
+  @Override
   public JSONObject toJsonObject(ProcessDefinition processDefinition) {
     ProcessDefinitionEntity processDefinitionEntity = (ProcessDefinitionEntity) processDefinition;
     JSONObject jsonObject = new JSONObject();
@@ -37,6 +38,7 @@ public class JsonProcessDefinitionConverter extends JsonObjectConverter<ProcessD
     return jsonObject;
   }
 
+  @Override
   public ProcessDefinition toObject(Reader reader) {
     return null;
   }

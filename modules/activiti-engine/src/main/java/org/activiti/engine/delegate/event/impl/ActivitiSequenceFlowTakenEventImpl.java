@@ -22,7 +22,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 	  super(type);
   }
 
-	public String getId() {
+	@Override
+    public String getId() {
 		return id;
 	}
 
@@ -30,7 +31,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 		this.id = id;
 	}
 
-	public String getSourceActivityId() {
+	@Override
+    public String getSourceActivityId() {
 		return sourceActivityId;
 	}
 
@@ -38,7 +40,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 		this.sourceActivityId = sourceActivityId;
 	}
 
-	public String getSourceActivityName() {
+	@Override
+    public String getSourceActivityName() {
 		return sourceActivityName;
 	}
 
@@ -46,7 +49,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 		this.sourceActivityName = sourceActivityName;
 	}
 
-	public String getSourceActivityType() {
+	@Override
+    public String getSourceActivityType() {
 		return sourceActivityType;
 	}
 
@@ -54,7 +58,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 		this.sourceActivityType = sourceActivityType;
 	}
 
-	public String getSourceActivityBehaviorClass() {
+	@Override
+    public String getSourceActivityBehaviorClass() {
 		return sourceActivityBehaviorClass;
 	}
 
@@ -62,7 +67,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 		this.sourceActivityBehaviorClass = sourceActivityBehaviorClass;
 	}
 
-	public String getTargetActivityId() {
+	@Override
+    public String getTargetActivityId() {
 		return targetActivityId;
 	}
 
@@ -70,7 +76,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 		this.targetActivityId = targetActivityId;
 	}
 
-	public String getTargetActivityName() {
+	@Override
+    public String getTargetActivityName() {
 		return targetActivityName;
 	}
 
@@ -78,7 +85,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 		this.targetActivityName = targetActivityName;
 	}
 
-	public String getTargetActivityType() {
+	@Override
+    public String getTargetActivityType() {
 		return targetActivityType;
 	}
 
@@ -86,7 +94,8 @@ public class ActivitiSequenceFlowTakenEventImpl extends ActivitiEventImpl implem
 		this.targetActivityType = targetActivityType;
 	}
 
-	public String getTargetActivityBehaviorClass() {
+	@Override
+    public String getTargetActivityBehaviorClass() {
 		return targetActivityBehaviorClass;
 	}
 

@@ -93,7 +93,7 @@ public class JSONML {
 			                x.back();
 			            } else if (c == '[') {
 			                token = x.nextToken();
-			                if (token.equals("CDATA") && x.next() == '[') {
+			                if ("CDATA".equals(token) && x.next() == '[') {
 			                	if (ja != null) {
 			                		ja.put(x.nextCDATA());
 			                	}
@@ -411,7 +411,7 @@ public class JSONML {
         keys = jo.keys();
         while (keys.hasNext()) {
             k = keys.next().toString();
-            if (!k.equals("tagName") && !k.equals("childNodes")) {
+            if (!"tagName".equals(k) && !"childNodes".equals(k)) {
             	XML.noSpace(k);
 	            v = jo.optString(k);
 	            if (v != null) {

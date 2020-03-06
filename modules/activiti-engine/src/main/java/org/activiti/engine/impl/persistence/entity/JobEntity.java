@@ -167,6 +167,7 @@ public abstract class JobEntity implements Job, PersistentObject, HasRevision, B
     }
   }
   
+  @Override
   public Object getPersistentState() {
     Map<String, Object> persistentState = new HashMap<String, Object>();
     persistentState.put("lockOwner", lockOwner);
@@ -178,36 +179,44 @@ public abstract class JobEntity implements Job, PersistentObject, HasRevision, B
     return persistentState;
   }
   
+  @Override
   public int getRevisionNext() {
     return revision+1;
   }
 
   // getters and setters //////////////////////////////////////////////////////
 
+  @Override
   public String getId() {
     return id;
   }
+  @Override
   public void setId(String id) {
     this.id = id;
   }
+  @Override
   public int getRevision() {
     return revision;
   }
+  @Override
   public void setRevision(int revision) {
     this.revision = revision;
   }
+  @Override
   public Date getDuedate() {
     return duedate;
   }
   public void setDuedate(Date duedate) {
     this.duedate = duedate;
   }
+  @Override
   public String getExecutionId() {
     return executionId;
   }
   public void setExecutionId(String executionId) {
     this.executionId = executionId;
   }
+  @Override
   public int getRetries() {
     return retries;
   }
@@ -226,6 +235,7 @@ public abstract class JobEntity implements Job, PersistentObject, HasRevision, B
   public void setLockExpirationTime(Date claimedUntil) {
     this.lockExpirationTime = claimedUntil;
   }
+  @Override
   public String getProcessInstanceId() {
     return processInstanceId;
   }
@@ -238,6 +248,7 @@ public abstract class JobEntity implements Job, PersistentObject, HasRevision, B
   public void setExclusive(boolean isExclusive) {
     this.isExclusive = isExclusive;
   }
+  @Override
   public String getProcessDefinitionId() {
     return processDefinitionId;
   }
@@ -256,6 +267,7 @@ public abstract class JobEntity implements Job, PersistentObject, HasRevision, B
   public void setJobHandlerConfiguration(String jobHandlerConfiguration) {
     this.jobHandlerConfiguration = jobHandlerConfiguration;
   }
+  @Override
   public String getExceptionMessage() {
     return exceptionMessage;
   }
@@ -268,6 +280,7 @@ public abstract class JobEntity implements Job, PersistentObject, HasRevision, B
   public void setJobType(String jobType) {
     this.jobType = jobType;
   }
+  @Override
   public String getTenantId() {
 		return tenantId;
 	}

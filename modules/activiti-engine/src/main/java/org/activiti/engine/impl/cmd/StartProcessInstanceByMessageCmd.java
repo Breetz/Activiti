@@ -48,6 +48,7 @@ public class StartProcessInstanceByMessageCmd implements Command<ProcessInstance
     this.tenantId = tenantId;
   }
 
+  @Override
   public ProcessInstance execute(CommandContext commandContext) {
     
     if (messageName == null) {

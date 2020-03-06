@@ -45,6 +45,7 @@ public class ProcessElementImpl implements PvmProcessElement {
     properties.put(name, value);
   }
   
+  @Override
   public Object getProperty(String name) {
     if (properties==null) {
       return null;
@@ -62,6 +63,7 @@ public class ProcessElementImpl implements PvmProcessElement {
   
   // getters and setters //////////////////////////////////////////////////////
   
+  @Override
   public String getId() {
     return id;
   }
@@ -70,6 +72,7 @@ public class ProcessElementImpl implements PvmProcessElement {
     this.properties = properties;
   }
 
+  @Override
   public ProcessDefinitionImpl getProcessDefinition() {
     return processDefinition;
   }

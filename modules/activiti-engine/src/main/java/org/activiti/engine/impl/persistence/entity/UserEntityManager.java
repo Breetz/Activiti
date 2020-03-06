@@ -40,10 +40,12 @@ import org.activiti.engine.impl.persistence.AbstractManager;
  */
 public class UserEntityManager extends AbstractManager implements UserIdentityManager {
 
+  @Override
   public User createNewUser(String userId) {
     return new UserEntity(userId);
   }
 
+  @Override
   public void insertUser(User user) {
     getDbSqlSession().insert((PersistentObject) user);
     
@@ -55,6 +57,7 @@ public class UserEntityManager extends AbstractManager implements UserIdentityMa
     }
   }
   
+  @Override
   public void updateUser(User updatedUser) {
     CommandContext commandContext = Context.getCommandContext();
     DbSqlSession dbSqlSession = commandContext.getDbSqlSession();
@@ -66,10 +69,12 @@ public class UserEntityManager extends AbstractManager implements UserIdentityMa
     }
   }
 
+  @Override
   public User findUserById(String userId) {
     return (UserEntity) getDbSqlSession().selectOne("selectUserById", userId);
   }
 
+  @Override
   @SuppressWarnings("unchecked")
   public void deleteUser(String userId) {
     UserEntity user = (UserEntity) findUserById(userId);
@@ -89,24 +94,29 @@ public class UserEntityManager extends AbstractManager implements UserIdentityMa
     }
   }
   
+  @Override
   @SuppressWarnings("unchecked")
   public List<User> findUserByQueryCriteria(UserQueryImpl query, Page page) {
     return getDbSqlSession().selectList("selectUserByQueryCriteria", query, page);
   }
   
+  @Override
   public long findUserCountByQueryCriteria(UserQueryImpl query) {
     return (Long) getDbSqlSession().selectOne("selectUserCountByQueryCriteria", query);
   }
   
+  @Override
   @SuppressWarnings("unchecked")
   public List<Group> findGroupsByUser(String userId) {
     return getDbSqlSession().selectList("selectGroupsByUserId", userId);
   }
 
+  @Override
   public UserQuery createNewUserQuery() {
     return new UserQueryImpl(Context.getProcessEngineConfiguration().getCommandExecutor());
   }
 
+  @Override
   public IdentityInfoEntity findUserInfoByUserIdAndKey(String userId, String key) {
     Map<String, String> parameters = new HashMap<String, String>();
     parameters.put("userId", userId);
@@ -114,6 +124,7 @@ public class UserEntityManager extends AbstractManager implements UserIdentityMa
     return (IdentityInfoEntity) getDbSqlSession().selectOne("selectIdentityInfoByUserIdAndKey", parameters);
   }
 
+  @Override
   @SuppressWarnings({ "unchecked", "rawtypes" })
   public List<String> findUserInfoKeysByUserIdAndType(String userId, String type) {
     Map<String, String> parameters = new HashMap<String, String>();
@@ -122,6 +133,7 @@ public class UserEntityManager extends AbstractManager implements UserIdentityMa
     return (List) getDbSqlSession().getSqlSession().selectList("selectIdentityInfoKeysByUserIdAndType", parameters);
   }
   
+  @Override
   public Boolean checkPassword(String userId, String password) {
     User user = findUserById(userId);
     if ((user != null) && (password != null) && (password.equals(user.getPassword()))) {
@@ -130,6 +142,7 @@ public class UserEntityManager extends AbstractManager implements UserIdentityMa
     return false;
   }
   
+  @Override
   @SuppressWarnings("unchecked")
   public List<User> findPotentialStarterUsers(String proceDefId) {
     Map<String, String> parameters = new HashMap<String, String>();
@@ -138,11 +151,13 @@ public class UserEntityManager extends AbstractManager implements UserIdentityMa
     
   }
 
+  @Override
   @SuppressWarnings("unchecked")
   public List<User> findUsersByNativeQuery(Map<String, Object> parameterMap, int firstResult, int maxResults) {
     return getDbSqlSession().selectListWithRawParameter("selectUserByNativeQuery", parameterMap, firstResult, maxResults);
   }
 
+  @Override
   public long findUserCountByNativeQuery(Map<String, Object> parameterMap) {
     return (Long) getDbSqlSession().selectOne("selectUserCountByNativeQuery", parameterMap);
   }

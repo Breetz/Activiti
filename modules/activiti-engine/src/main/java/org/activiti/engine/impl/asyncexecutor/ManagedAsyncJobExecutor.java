@@ -44,6 +44,7 @@ private static Logger log = LoggerFactory.getLogger(ManagedAsyncJobExecutor.clas
     this.threadFactory = threadFactory;
   }
   
+  @Override
   protected void startExecutingAsyncJobs() {
     if (threadFactory == null) {
       log.warn("A managed thread factory was not found, falling back to self-managed threads");

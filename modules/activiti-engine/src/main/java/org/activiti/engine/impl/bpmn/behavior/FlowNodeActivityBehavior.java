@@ -32,6 +32,7 @@ public abstract class FlowNodeActivityBehavior implements SignallableActivityBeh
   /**
    * Default behaviour: just leave the activity with no extra functionality.
    */
+  @Override
   public void execute(ActivityExecution execution) throws Exception {
     leave(execution);
   }
@@ -48,6 +49,7 @@ public abstract class FlowNodeActivityBehavior implements SignallableActivityBeh
     bpmnActivityBehavior.performIgnoreConditionsOutgoingBehavior(activityContext);
   }
 
+  @Override
   public void signal(ActivityExecution execution, String signalName, Object signalData) throws Exception {
     // concrete activity behaviours that do accept signals should override this method;
     throw new ActivitiException("this activity doesn't accept signals");

@@ -36,10 +36,12 @@ import org.activiti.engine.impl.persistence.AbstractManager;
  */
 public class GroupEntityManager extends AbstractManager implements GroupIdentityManager {
 
+  @Override
   public Group createNewGroup(String groupId) {
     return new GroupEntity(groupId);
   }
 
+  @Override
   public void insertGroup(Group group) {
     getDbSqlSession().insert((PersistentObject) group);
     
@@ -51,6 +53,7 @@ public class GroupEntityManager extends AbstractManager implements GroupIdentity
     }
   }
 
+  @Override
   public void updateGroup(Group updatedGroup) {
     CommandContext commandContext = Context.getCommandContext();
     DbSqlSession dbSqlSession = commandContext.getDbSqlSession();
@@ -62,6 +65,7 @@ public class GroupEntityManager extends AbstractManager implements GroupIdentity
     }
   }
 
+  @Override
   public void deleteGroup(String groupId) {
     GroupEntity group = getDbSqlSession().selectById(GroupEntity.class, groupId);
     
@@ -81,29 +85,35 @@ public class GroupEntityManager extends AbstractManager implements GroupIdentity
     }
   }
 
+  @Override
   public GroupQuery createNewGroupQuery() {
     return new GroupQueryImpl(Context.getProcessEngineConfiguration().getCommandExecutor());
   }
 
+  @Override
   @SuppressWarnings("unchecked")
   public List<Group> findGroupByQueryCriteria(GroupQueryImpl query, Page page) {
     return getDbSqlSession().selectList("selectGroupByQueryCriteria", query, page);
   }
   
+  @Override
   public long findGroupCountByQueryCriteria(GroupQueryImpl query) {
     return (Long) getDbSqlSession().selectOne("selectGroupCountByQueryCriteria", query);
   }
 
+  @Override
   @SuppressWarnings("unchecked")
   public List<Group> findGroupsByUser(String userId) {
     return getDbSqlSession().selectList("selectGroupsByUserId", userId);
   }
 
+  @Override
   @SuppressWarnings("unchecked")
   public List<Group> findGroupsByNativeQuery(Map<String, Object> parameterMap, int firstResult, int maxResults) {
     return getDbSqlSession().selectListWithRawParameter("selectGroupByNativeQuery", parameterMap, firstResult, maxResults);
   }
 
+  @Override
   public long findGroupCountByNativeQuery(Map<String, Object> parameterMap) {
     return (Long) getDbSqlSession().selectOne("selectGroupCountByNativeQuery", parameterMap);
   }

@@ -21,10 +21,13 @@ import org.activiti.engine.delegate.VariableScope;
  */
 public interface Expression extends org.activiti.engine.delegate.Expression {
 
+   @Override
    Object getValue(VariableScope variableScope);
    
+   @Override
    void setValue(Object value, VariableScope variableScope);
    
+   @Override
    String getExpressionText();
    
 }

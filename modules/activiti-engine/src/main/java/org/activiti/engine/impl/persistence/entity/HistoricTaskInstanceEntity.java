@@ -80,6 +80,7 @@ public class HistoricTaskInstanceEntity extends HistoricScopeInstanceEntity impl
 
   // persistence //////////////////////////////////////////////////////////////
   
+  @Override
   public Object getPersistentState() {
     Map<String, Object> persistentState = new HashMap<String, Object>();
     persistentState.put("name", name);
@@ -107,12 +108,14 @@ public class HistoricTaskInstanceEntity extends HistoricScopeInstanceEntity impl
   }
 
   // getters and setters //////////////////////////////////////////////////////
+  @Override
   public String getExecutionId() {
     return executionId;
   }
   public void setExecutionId(String executionId) {
     this.executionId = executionId;
   }
+  @Override
   public String getName() {
     if (localizedName != null && localizedName.length() > 0) {
       return localizedName;
@@ -123,9 +126,11 @@ public class HistoricTaskInstanceEntity extends HistoricScopeInstanceEntity impl
   public void setName(String name) {
     this.name = name;
   }
+  @Override
   public void setLocalizedName(String name) {
     this.localizedName = name;
   }
+  @Override
   public String getDescription() {
     if (localizedDescription != null && localizedDescription.length() > 0) {
       return localizedDescription;
@@ -136,15 +141,18 @@ public class HistoricTaskInstanceEntity extends HistoricScopeInstanceEntity impl
   public void setDescription(String description) {
     this.description = description;
   }
+  @Override
   public void setLocalizedDescription(String description) {
     this.localizedDescription = description;
   }
+  @Override
   public String getAssignee() {
     return assignee;
   }
   public void setAssignee(String assignee) {
     this.assignee = assignee;
   }
+  @Override
   public String getTaskDefinitionKey() {
     return taskDefinitionKey;
   }
@@ -155,63 +163,74 @@ public class HistoricTaskInstanceEntity extends HistoricScopeInstanceEntity impl
   public Date getCreateTime() {
   	return getStartTime(); // For backwards compatible reason implemented with createTime and startTime
   }
+  @Override
   public String getFormKey() {
     return formKey;
   }
   public void setFormKey(String formKey) {
     this.formKey = formKey;
   }
+  @Override
   public int getPriority() {
     return priority;
   }
   public void setPriority(int priority) {
     this.priority = priority;
   }
+  @Override
   public Date getDueDate() {
     return dueDate;
   }
   public void setDueDate(Date dueDate) {
     this.dueDate = dueDate;
   }
+  @Override
   public String getCategory() {
 		return category;
 	}
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getOwner() {
+	@Override
+    public String getOwner() {
     return owner;
   }
   public void setOwner(String owner) {
     this.owner = owner;
   }
+  @Override
   public String getParentTaskId() {
     return parentTaskId;
   }
   public void setParentTaskId(String parentTaskId) {
     this.parentTaskId = parentTaskId;
   }
+  @Override
   public Date getClaimTime() {
     return claimTime;
   }
   public void setClaimTime(Date claimTime) {
     this.claimTime = claimTime;
   }
+  @Override
   public String getTenantId() {
 		return tenantId;
 	}
 	public void setTenantId(String tenantId) {
 		this.tenantId = tenantId;
 	}
-	public Date getTime() {
+	@Override
+    public Date getTime() {
 		return getStartTime();
 	}
-	public Long getWorkTimeInMillis() {
+	@Override
+    public Long getWorkTimeInMillis() {
     if (endTime == null || claimTime == null) {
       return null;
     }
     return endTime.getTime() - claimTime.getTime();
   }
+  @Override
   public Map<String, Object> getTaskLocalVariables() {
     Map<String, Object> variables = new HashMap<String, Object>();
     if (queryVariables != null) {
@@ -223,6 +242,7 @@ public class HistoricTaskInstanceEntity extends HistoricScopeInstanceEntity impl
     }
     return variables;
   }
+  @Override
   public Map<String, Object> getProcessVariables() {
     Map<String, Object> variables = new HashMap<String, Object>();
     if (queryVariables != null) {

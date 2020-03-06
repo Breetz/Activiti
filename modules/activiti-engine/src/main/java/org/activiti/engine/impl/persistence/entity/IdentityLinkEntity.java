@@ -52,6 +52,7 @@ public class IdentityLinkEntity implements Serializable, IdentityLink, BulkDelet
   
   protected ProcessDefinitionEntity processDef;
 
+  @Override
   public Object getPersistentState() {
     Map<String, Object> persistentState = new  HashMap<String, Object>();
     persistentState.put("id", this.id);
@@ -106,14 +107,17 @@ public class IdentityLinkEntity implements Serializable, IdentityLink, BulkDelet
     return groupId != null;
   }
   
+  @Override
   public String getId() {
     return id;
   }
   
+  @Override
   public void setId(String id) {
     this.id = id;
   }
   
+  @Override
   public String getType() {
     return type;
   }
@@ -122,6 +126,7 @@ public class IdentityLinkEntity implements Serializable, IdentityLink, BulkDelet
     this.type = type;
   }
 
+  @Override
   public String getUserId() {
     return userId;
   }
@@ -133,6 +138,7 @@ public class IdentityLinkEntity implements Serializable, IdentityLink, BulkDelet
     this.userId = userId;
   }
   
+  @Override
   public String getGroupId() {
     return groupId;
   }
@@ -144,6 +150,7 @@ public class IdentityLinkEntity implements Serializable, IdentityLink, BulkDelet
     this.groupId = groupId;
   }
   
+  @Override
   public String getTaskId() {
     return taskId;
   }
@@ -152,6 +159,7 @@ public class IdentityLinkEntity implements Serializable, IdentityLink, BulkDelet
     this.taskId = taskId;
   }
   
+  @Override
   public String getProcessInstanceId() {
     return processInstanceId;
   }

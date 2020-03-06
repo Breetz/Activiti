@@ -23,10 +23,12 @@ import org.activiti.engine.impl.persistence.entity.MembershipIdentityManager;
  */
 public class MembershipEntityManagerFactory implements SessionFactory {
 
+  @Override
   public Class< ? > getSessionType() {
     return MembershipIdentityManager.class;
   }
 
+  @Override
   public Session openSession() {
     return new MembershipEntityManager();
   }

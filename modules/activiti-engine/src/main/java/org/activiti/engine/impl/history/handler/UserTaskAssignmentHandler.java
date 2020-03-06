@@ -24,6 +24,7 @@ import org.activiti.engine.impl.persistence.entity.TaskEntity;
  */
 public class UserTaskAssignmentHandler implements TaskListener {
 
+  @Override
   public void notify(DelegateTask task) {
    Context.getCommandContext().getHistoryManager()
      .recordTaskAssignment((TaskEntity) task);

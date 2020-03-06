@@ -78,6 +78,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     super(commandExecutor);
   }
   
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionId(String processDefinitionId) {
     this.id = processDefinitionId;
     return this;
@@ -95,6 +96,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
   	return this;
   }
   
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionCategory(String category) {
     if (category == null) {
       throw new ActivitiIllegalArgumentException("category is null");
@@ -103,6 +105,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
   
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionCategoryLike(String categoryLike) {
     if (categoryLike == null) {
       throw new ActivitiIllegalArgumentException("categoryLike is null");
@@ -111,6 +114,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
 
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionCategoryNotEquals(String categoryNotEquals) {
     if (categoryNotEquals == null) {
       throw new ActivitiIllegalArgumentException("categoryNotEquals is null");
@@ -119,6 +123,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
 
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionName(String name) {
     if (name == null) {
       throw new ActivitiIllegalArgumentException("name is null");
@@ -127,6 +132,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
   
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionNameLike(String nameLike) {
     if (nameLike == null) {
       throw new ActivitiIllegalArgumentException("nameLike is null");
@@ -135,6 +141,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
 
+  @Override
   public ProcessDefinitionQueryImpl deploymentId(String deploymentId) {
     if (deploymentId == null) {
       throw new ActivitiIllegalArgumentException("id is null");
@@ -143,6 +150,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
   
+  @Override
   public ProcessDefinitionQueryImpl deploymentIds(Set<String> deploymentIds) {
     if (deploymentIds == null) {
       throw new ActivitiIllegalArgumentException("deploymentIds is null");
@@ -154,6 +162,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
 
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionKey(String key) {
     if (key == null) {
       throw new ActivitiIllegalArgumentException("key is null");
@@ -162,6 +171,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
   
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionKeyLike(String keyLike) {
     if (keyLike == null) {
       throw new ActivitiIllegalArgumentException("keyLike is null");
@@ -170,6 +180,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
   
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionResourceName(String resourceName) {
     if (resourceName == null) {
       throw new ActivitiIllegalArgumentException("resourceName is null");
@@ -178,6 +189,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
   
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionResourceNameLike(String resourceNameLike) {
     if (resourceNameLike == null) {
       throw new ActivitiIllegalArgumentException("resourceNameLike is null");
@@ -186,30 +198,35 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return this;
   }
   
+  @Override
   public ProcessDefinitionQueryImpl processDefinitionVersion(Integer version) {
     checkVersion(version);
     this.version = version;
     return this;
   }
 
+  @Override
   public ProcessDefinitionQuery processDefinitionVersionGreaterThan(Integer processDefinitionVersion) {
     checkVersion(processDefinitionVersion);
     this.versionGt = processDefinitionVersion;
     return this;
   }
 
+  @Override
   public ProcessDefinitionQuery processDefinitionVersionGreaterThanOrEquals(Integer processDefinitionVersion) {
     checkVersion(processDefinitionVersion);
     this.versionGte = processDefinitionVersion;
     return this;
   }
 
+  @Override
   public ProcessDefinitionQuery processDefinitionVersionLowerThan(Integer processDefinitionVersion) {
     checkVersion(processDefinitionVersion);
     this.versionLt = processDefinitionVersion;
     return this;
   }
 
+  @Override
   public ProcessDefinitionQuery processDefinitionVersionLowerThanOrEquals(Integer processDefinitionVersion) {
     checkVersion(processDefinitionVersion);
     this.versionLte = processDefinitionVersion;
@@ -224,21 +241,25 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     }
   }
   
+  @Override
   public ProcessDefinitionQueryImpl latestVersion() {
     this.latest = true;
     return this;
   }
   
+  @Override
   public ProcessDefinitionQuery active() {
     this.suspensionState = SuspensionState.ACTIVE;    
     return this;
   }
   
+  @Override
   public ProcessDefinitionQuery suspended() {
     this.suspensionState = SuspensionState.SUSPENDED;
     return this;
   }
   
+  @Override
   public ProcessDefinitionQuery processDefinitionTenantId(String tenantId) {
   	if (tenantId == null) {
   		throw new ActivitiIllegalArgumentException("processDefinition tenantId is null");
@@ -247,6 +268,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
   	return this;
   }
   
+  @Override
   public ProcessDefinitionQuery processDefinitionTenantIdLike(String tenantIdLike) {
   	if (tenantIdLike == null) {
   		throw new ActivitiIllegalArgumentException("process definition tenantId is null");
@@ -255,15 +277,18 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
   	return this;
   }
   
+  @Override
   public ProcessDefinitionQuery processDefinitionWithoutTenantId() {
   	this.withoutTenantId = true;
   	return this;
   }
   
+  @Override
   public ProcessDefinitionQuery messageEventSubscription(String messageName) {
     return eventSubscription("message", messageName);
   }
   
+  @Override
   public ProcessDefinitionQuery messageEventSubscriptionName(String messageName) {
     return eventSubscription("message", messageName);
   }
@@ -304,36 +329,44 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
   
   //sorting ////////////////////////////////////////////
   
+  @Override
   public ProcessDefinitionQuery orderByDeploymentId() {
     return orderBy(ProcessDefinitionQueryProperty.DEPLOYMENT_ID);
   }
   
+  @Override
   public ProcessDefinitionQuery orderByProcessDefinitionKey() {
     return orderBy(ProcessDefinitionQueryProperty.PROCESS_DEFINITION_KEY);
   }
   
+  @Override
   public ProcessDefinitionQuery orderByProcessDefinitionCategory() {
     return orderBy(ProcessDefinitionQueryProperty.PROCESS_DEFINITION_CATEGORY);
   }
   
+  @Override
   public ProcessDefinitionQuery orderByProcessDefinitionId() {
     return orderBy(ProcessDefinitionQueryProperty.PROCESS_DEFINITION_ID);
   }
   
+  @Override
   public ProcessDefinitionQuery orderByProcessDefinitionVersion() {
     return orderBy(ProcessDefinitionQueryProperty.PROCESS_DEFINITION_VERSION);
   }
   
+  @Override
   public ProcessDefinitionQuery orderByProcessDefinitionName() {
     return orderBy(ProcessDefinitionQueryProperty.PROCESS_DEFINITION_NAME);
   }
   
+  @Override
   public ProcessDefinitionQuery orderByTenantId() {
     return orderBy(ProcessDefinitionQueryProperty.PROCESS_DEFINITION_TENANT_ID);
   }
   
   //results ////////////////////////////////////////////
   
+  @Override
   public long executeCount(CommandContext commandContext) {
     checkQueryOk();
     return commandContext
@@ -341,6 +374,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
       .findProcessDefinitionCountByQueryCriteria(this);
   }
 
+  @Override
   public List<ProcessDefinition> executeList(CommandContext commandContext, Page page) {
     checkQueryOk();
     return commandContext
@@ -348,6 +382,7 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
       .findProcessDefinitionsByQueryCriteria(this, page);
   }
   
+  @Override
   public void checkQueryOk() {
     super.checkQueryOk();
   }
@@ -427,7 +462,8 @@ public class ProcessDefinitionQueryImpl extends AbstractQuery<ProcessDefinitionQ
     return withoutTenantId;
 	}
 
-	public ProcessDefinitionQueryImpl startableByUser(String userId) {
+	@Override
+    public ProcessDefinitionQueryImpl startableByUser(String userId) {
     if (userId == null) {
       throw new ActivitiIllegalArgumentException("userId is null");
     }

@@ -143,6 +143,7 @@ public abstract class EventSubscriptionEntity implements PersistentObject, HasRe
     }
   }
   
+  @Override
   public Object getPersistentState() {
     HashMap<String, Object> persistentState = new HashMap<String, Object>();
     persistentState.put("executionId", executionId);
@@ -187,22 +188,27 @@ public abstract class EventSubscriptionEntity implements PersistentObject, HasRe
     }
   }
   
+  @Override
   public String getId() {
     return id;
   }
 
+  @Override
   public void setId(String id) {
     this.id = id;
   }
 
+  @Override
   public int getRevision() {
     return revision;
   }
 
+  @Override
   public void setRevision(int revision) {
     this.revision = revision;
   }
   
+  @Override
   public int getRevisionNext() {
     return revision +1;
   }
@@ -289,18 +295,23 @@ public abstract class EventSubscriptionEntity implements PersistentObject, HasRe
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
+    if (this == obj) {
+        return true;
+    }
+    if (obj == null) {
+        return false;
+    }
+    if (getClass() != obj.getClass()) {
+        return false;
+    }
     EventSubscriptionEntity other = (EventSubscriptionEntity) obj;
     if (id == null) {
-      if (other.id != null)
+      if (other.id != null) {
+          return false;
+      }
+    } else if (!id.equals(other.id)) {
         return false;
-    } else if (!id.equals(other.id))
-      return false;
+    }
     return true;
   }
   

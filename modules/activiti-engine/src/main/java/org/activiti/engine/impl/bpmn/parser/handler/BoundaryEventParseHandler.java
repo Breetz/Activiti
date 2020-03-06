@@ -33,10 +33,12 @@ public class BoundaryEventParseHandler extends AbstractFlowNodeBpmnParseHandler<
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoundaryEventParseHandler.class);
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return BoundaryEvent.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, BoundaryEvent boundaryEvent) {
     
     ActivityImpl parentActivity = findActivity(bpmnParse, boundaryEvent.getAttachedToRefId());

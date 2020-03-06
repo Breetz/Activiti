@@ -227,8 +227,9 @@ public class ErrorPropagation {
       }
        
       // ignore if error code or class are not defined
-      if (StringUtils.isEmpty(errorCode) || StringUtils.isEmpty(exceptionClass))
-        continue;
+      if (StringUtils.isEmpty(errorCode) || StringUtils.isEmpty(exceptionClass)) {
+          continue;
+      }
        
       if (e.getClass().getName().equals(exceptionClass)) {
         propagateError(errorCode, execution);

@@ -35,6 +35,7 @@ public class ParallelMultiInstanceBehavior extends MultiInstanceActivityBehavior
    * Handles the parallel case of spawning the instances.
    * Will create child executions accordingly for every instance needed.
    */
+   @Override
    protected void createInstances(ActivityExecution execution) throws Exception {
     int nrOfInstances = resolveNrOfInstances(execution);
     if (nrOfInstances < 0) {
@@ -98,6 +99,7 @@ public class ParallelMultiInstanceBehavior extends MultiInstanceActivityBehavior
    * {@link AbstractBpmnActivityBehavior#leave(ActivityExecution)} method.
    * Handles the completion of one of the parallel instances
    */
+  @Override
   public void leave(ActivityExecution execution) {
     callActivityEndListeners(execution);
     

@@ -42,6 +42,7 @@ public class SetUserInfoCmd implements Command<Object>, Serializable {
     this.value = value;
   }
 
+  @Override
   public Object execute(CommandContext commandContext) {
     commandContext
       .getIdentityInfoEntityManager()

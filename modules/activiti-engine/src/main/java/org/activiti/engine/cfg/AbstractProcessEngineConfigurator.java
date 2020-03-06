@@ -14,11 +14,13 @@ public abstract class AbstractProcessEngineConfigurator implements ProcessEngine
 		return DEFAULT_CONFIGURATOR_PRIORITY;
 	}
 	
-	public void beforeInit(ProcessEngineConfigurationImpl processEngineConfiguration) {
+	@Override
+    public void beforeInit(ProcessEngineConfigurationImpl processEngineConfiguration) {
     
   }
 	
-	public void configure(ProcessEngineConfigurationImpl processEngineConfiguration) {
+	@Override
+    public void configure(ProcessEngineConfigurationImpl processEngineConfiguration) {
 	  
 	}
 

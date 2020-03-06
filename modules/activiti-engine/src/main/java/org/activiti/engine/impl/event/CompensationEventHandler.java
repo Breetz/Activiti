@@ -35,10 +35,12 @@ public class CompensationEventHandler implements EventHandler {
   
   public final static String EVENT_HANDLER_TYPE = "compensate";
 
+  @Override
   public String getEventHandlerType() {
     return EVENT_HANDLER_TYPE;
   }
 
+  @Override
   public void handleEvent(EventSubscriptionEntity eventSubscription, Object payload, CommandContext commandContext) {
         
     String configuration = eventSubscription.getConfiguration();

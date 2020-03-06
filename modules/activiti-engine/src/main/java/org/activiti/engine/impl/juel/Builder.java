@@ -90,7 +90,8 @@ public class Builder implements TreeBuilder {
 	/**
 	 * Parse expression.
 	 */
-	public Tree build(String expression) throws TreeBuilderException {
+	@Override
+    public Tree build(String expression) throws TreeBuilderException {
 		try {
 			return createParser(expression).tree();
 		} catch (ScanException e) {

@@ -25,10 +25,12 @@ import org.activiti.engine.impl.pvm.process.ActivityImpl;
  */
 public class TransactionParseHandler extends AbstractActivityBpmnParseHandler<Transaction> {
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return Transaction.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, Transaction transaction) {
     
     ActivityImpl activity = createActivityOnCurrentScope(bpmnParse, transaction, BpmnXMLConstants.ELEMENT_TRANSACTION);

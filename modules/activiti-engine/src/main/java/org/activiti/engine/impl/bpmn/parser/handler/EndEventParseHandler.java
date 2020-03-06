@@ -33,10 +33,12 @@ public class EndEventParseHandler extends AbstractActivityBpmnParseHandler<EndEv
 	
 	private static final Logger logger = LoggerFactory.getLogger(EndEventParseHandler.class);
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return EndEvent.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, EndEvent endEvent) {
     
     ActivityImpl endEventActivity = createActivityOnCurrentScope(bpmnParse, endEvent, BpmnXMLConstants.ELEMENT_EVENT_END);
@@ -61,7 +63,7 @@ public class EndEventParseHandler extends AbstractActivityBpmnParseHandler<EndEv
     // Cancel end event      
     } else if (eventDefinition instanceof CancelEventDefinition) {
       ScopeImpl scope = bpmnParse.getCurrentScope();
-      if (scope.getProperty("type")==null || !scope.getProperty("type").equals("transaction")) {
+      if (scope.getProperty("type")==null || !"transaction".equals(scope.getProperty("type"))) {
         logger.warn("end event with cancelEventDefinition only supported inside transaction subprocess (id=" + endEvent.getId() + ")");
       } else {
         endEventActivity.setProperty("type", "cancelEndEvent");

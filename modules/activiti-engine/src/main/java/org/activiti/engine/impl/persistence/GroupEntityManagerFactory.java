@@ -23,10 +23,12 @@ import org.activiti.engine.impl.persistence.entity.GroupIdentityManager;
  */
 public class GroupEntityManagerFactory implements SessionFactory {
 
+  @Override
   public Class< ? > getSessionType() {
     return GroupIdentityManager.class;
   }
 
+  @Override
   public Session openSession() {
     return new GroupEntityManager();
   }

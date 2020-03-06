@@ -21,6 +21,7 @@ import org.activiti.bpmn.model.EventSubProcess;
  */
 public class EventSubProcessParseHandler extends SubProcessParseHandler {
   
+  @Override
   protected Class< ? extends BaseElement> getHandledType() {
     return EventSubProcess.class;
   }

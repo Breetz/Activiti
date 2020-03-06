@@ -55,7 +55,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
     return null; // Not updateable
   }
   
-	public long getLogNumber() {
+	@Override
+    public long getLogNumber() {
 		return logNumber;
 	}
 
@@ -63,7 +64,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
 		this.logNumber = logNumber;
 	}
 
-	public String getType() {
+	@Override
+    public String getType() {
 		return type;
 	}
 
@@ -71,7 +73,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
 		this.type = type;
 	}
 
-	public String getProcessDefinitionId() {
+	@Override
+    public String getProcessDefinitionId() {
 		return processDefinitionId;
 	}
 
@@ -79,7 +82,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
 		this.processDefinitionId = processDefinitionId;
 	}
 
-	public String getProcessInstanceId() {
+	@Override
+    public String getProcessInstanceId() {
 		return processInstanceId;
 	}
 
@@ -87,7 +91,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
 		this.processInstanceId = processInstanceId;
 	}
 
-	public String getExecutionId() {
+	@Override
+    public String getExecutionId() {
 		return executionId;
 	}
 
@@ -95,7 +100,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
 		this.executionId = executionId;
 	}
 
-	public String getTaskId() {
+	@Override
+    public String getTaskId() {
 		return taskId;
 	}
 
@@ -103,7 +109,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
 		this.taskId = taskId;
 	}
 
-	public Date getTimeStamp() {
+	@Override
+    public Date getTimeStamp() {
 		return timeStamp;
 	}
 
@@ -111,7 +118,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
 		this.timeStamp = timeStamp;
 	}
 	
-	public String getUserId() {
+	@Override
+    public String getUserId() {
 		return userId;
 	}
 
@@ -119,7 +127,8 @@ public class EventLogEntryEntity implements PersistentObject, EventLogEntry {
 		this.userId = userId;
 	}
 
-	public byte[] getData() {
+	@Override
+    public byte[] getData() {
 		return data;
 	}
 

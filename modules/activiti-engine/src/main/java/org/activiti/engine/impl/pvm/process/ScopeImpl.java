@@ -41,6 +41,7 @@ public abstract class ScopeImpl extends ProcessElementImpl implements PvmScope {
     super(id, processDefinition);
   }
   
+  @Override
   public ActivityImpl findActivity(String activityId) {
     ActivityImpl localActivity = namedActivities.get(activityId);
     if (localActivity!=null) {
@@ -118,6 +119,7 @@ public abstract class ScopeImpl extends ProcessElementImpl implements PvmScope {
   
   // getters and setters //////////////////////////////////////////////////////
   
+  @Override
   public List<ActivityImpl> getActivities() {
     return activities;
   }

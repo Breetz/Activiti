@@ -38,10 +38,12 @@ public class ProcessParseHandler extends AbstractBpmnParseHandler<Process> {
   
   public static final String PROPERTYNAME_DOCUMENTATION = "documentation";
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return Process.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, Process process) {
     if (process.isExecutable() == false) {
       LOGGER.info("Ignoring non-executable process with id='" + process.getId() + "'. Set the attribute isExecutable=\"true\" to deploy this process.");

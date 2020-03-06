@@ -50,7 +50,8 @@ public class ActivitiVariableEventImpl extends ActivitiEventImpl implements Acti
 	  this.variableValue = variableValue;
   }
 	
-	public VariableType getVariableType() {
+	@Override
+    public VariableType getVariableType() {
 		return variableType;
 	}
 

@@ -38,6 +38,7 @@ public class DefaultFormHandler implements FormHandler {
   protected String deploymentId;
   protected List<FormPropertyHandler> formPropertyHandlers = new ArrayList<FormPropertyHandler>();
   
+  @Override
   public void parseConfiguration(List<org.activiti.bpmn.model.FormProperty> formProperties, String formKey, DeploymentEntity deployment, ProcessDefinitionEntity processDefinition) {
     this.deploymentId = deployment.getId();
     
@@ -90,6 +91,7 @@ public class DefaultFormHandler implements FormHandler {
     formData.setFormProperties(formProperties);
   }
 
+  @Override
   public void submitFormProperties(Map<String, String> properties, ExecutionEntity execution) {
     Map<String, String> propertiesCopy = new HashMap<String, String>(properties);
     for (FormPropertyHandler formPropertyHandler: formPropertyHandlers) {

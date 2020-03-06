@@ -27,6 +27,7 @@ public class CallerRunsRejectedJobsHandler implements RejectedJobsHandler {
   
   private static Logger log = LoggerFactory.getLogger(CallerRunsRejectedJobsHandler.class);
 
+  @Override
   public void jobsRejected(JobExecutor jobExecutor, List<String> jobIds) {
     try {
       // execute rejected work in caller thread (potentially blocking job acquisition)

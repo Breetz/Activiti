@@ -29,14 +29,17 @@ public class MultipleJobsExecutorContext implements JobExecutorContext {
     return currentProcessorJobQueue;
   }
 
+  @Override
   public boolean isExecutingExclusiveJob() {
     return currentJob == null ? false : currentJob.isExclusive();
   }
      
+  @Override
   public void setCurrentJob(JobEntity currentJob) {
     this.currentJob = currentJob;
   }
     
+  @Override
   public JobEntity getCurrentJob() {
     return currentJob;
   }

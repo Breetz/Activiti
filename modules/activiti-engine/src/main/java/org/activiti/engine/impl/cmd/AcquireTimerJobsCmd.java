@@ -38,6 +38,7 @@ public class AcquireTimerJobsCmd implements Command<AcquiredJobEntities> {
     this.maxJobsPerAcquisition = maxJobsPerAcquisition;
   }
   
+  @Override
   public AcquiredJobEntities execute(CommandContext commandContext) {
     AcquiredJobEntities acquiredJobs = new AcquiredJobEntities();
     List<JobEntity> jobs = commandContext

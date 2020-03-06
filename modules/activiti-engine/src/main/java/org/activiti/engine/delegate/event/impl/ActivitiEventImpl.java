@@ -51,7 +51,8 @@ public class ActivitiEventImpl implements ActivitiEvent {
 	  this.processDefinitionId = processDefinitionId;
   }
 
-	public ActivitiEventType getType() {
+	@Override
+    public ActivitiEventType getType() {
 		return type;
 	}
 
@@ -59,7 +60,8 @@ public class ActivitiEventImpl implements ActivitiEvent {
 		this.type = type;
 	}
 	
-	public String getExecutionId() {
+	@Override
+    public String getExecutionId() {
 	  return executionId;
   }
 	
@@ -67,7 +69,8 @@ public class ActivitiEventImpl implements ActivitiEvent {
 	  this.executionId = executionId;
   }
 	
-	public String getProcessDefinitionId() {
+	@Override
+    public String getProcessDefinitionId() {
 	  return processDefinitionId;
   }
 	
@@ -75,7 +78,8 @@ public class ActivitiEventImpl implements ActivitiEvent {
 	  this.processDefinitionId = processDefinitionId;
   }
 	
-	public String getProcessInstanceId() {
+	@Override
+    public String getProcessInstanceId() {
 	  return processInstanceId;
   }
 	

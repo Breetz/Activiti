@@ -32,6 +32,7 @@ public class SetTaskDueDateCmd extends NeedsActiveTaskCmd<Void> {
     this.dueDate = dueDate;
   }
   
+  @Override
   protected Void execute(CommandContext commandContext, TaskEntity task) {
     task.setDueDate(dueDate, true);
     return null;

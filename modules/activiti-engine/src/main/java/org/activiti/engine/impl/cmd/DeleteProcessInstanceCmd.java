@@ -32,7 +32,8 @@ public class DeleteProcessInstanceCmd implements Command<Void>, Serializable {
     this.deleteReason = deleteReason;
   }
 
-  public Void execute(CommandContext commandContext) { 
+  @Override
+  public Void execute(CommandContext commandContext) {
     if (processInstanceId == null) {
       throw new ActivitiIllegalArgumentException("processInstanceId is null");
     }

@@ -133,7 +133,8 @@ public class Bindings implements TypeConverter {
 	 * @return converted value
 	 * @throws ELException
 	 */
-	public <T> T convert(Object value, Class<T> type) {
+	@Override
+    public <T> T convert(Object value, Class<T> type) {
 		return converter.convert(value, type);
 	}
 	

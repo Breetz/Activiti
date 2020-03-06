@@ -34,6 +34,7 @@ public class ExecuteSchemaOperationCommand implements Command<Void> {
     this.schemaOperation = schemaOperation;
   }
   
+  @Override
   public Void execute(CommandContext commandContext) {
     if (ProcessEngineConfigurationImpl.DB_SCHEMA_UPDATE_DROP_CREATE.equals(schemaOperation)) {
       try {

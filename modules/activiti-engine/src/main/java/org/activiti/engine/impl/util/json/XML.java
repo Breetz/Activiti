@@ -157,7 +157,7 @@ public class XML {
                 x.back();
             } else if (c == '[') {
                 t = x.nextToken();
-                if (t.equals("CDATA")) {
+                if ("CDATA".equals(t)) {
                     if (x.next() == '[') {
                         s = x.nextCDATA();
                         if (s.length() > 0) {
@@ -362,7 +362,7 @@ public class XML {
 
 // Emit content in body
 
-                if (k.equals("content")) {
+                if ("content".equals(k)) {
                     if (v instanceof JSONArray) {
                         ja = (JSONArray)v;
                         len = ja.length();
@@ -395,7 +395,7 @@ public class XML {
                     		b.append(toString(v, k));
                     	}
                     }
-                } else if (v.equals("")) {
+                } else if ("".equals(v)) {
                     b.append('<');
                     b.append(k);
                     b.append("/>");

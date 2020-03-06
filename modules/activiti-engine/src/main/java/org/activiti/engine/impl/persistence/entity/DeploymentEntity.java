@@ -73,6 +73,7 @@ public class DeploymentEntity implements Serializable, Deployment, PersistentObj
     return resources;
   }
 
+  @Override
   public Object getPersistentState() {
     Map<String, Object> persistentState = new HashMap<String, Object>();
     persistentState.put("category", this.category);
@@ -103,14 +104,17 @@ public class DeploymentEntity implements Serializable, Deployment, PersistentObj
 
   // getters and setters //////////////////////////////////////////////////////
 
+  @Override
   public String getId() {
     return id;
   }
   
+  @Override
   public void setId(String id) {
     this.id = id;
   }
   
+  @Override
   public String getName() {
     return name;
   }
@@ -119,6 +123,7 @@ public class DeploymentEntity implements Serializable, Deployment, PersistentObj
     this.name = name;
   }
   
+  @Override
   public String getCategory() {
     return category;
   }
@@ -127,6 +132,7 @@ public class DeploymentEntity implements Serializable, Deployment, PersistentObj
     this.category = category;
   }
   
+  @Override
   public String getTenantId() {
   	return tenantId;
   }
@@ -139,6 +145,7 @@ public class DeploymentEntity implements Serializable, Deployment, PersistentObj
     this.resources = resources;
   }
   
+  @Override
   public Date getDeploymentTime() {
     return deploymentTime;
   }

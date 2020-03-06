@@ -266,6 +266,7 @@ public abstract class TestHelper {
       ((ProcessEngineImpl)processEngine)
       .getProcessEngineConfiguration().getCommandExecutor()
         .execute(new Command<Object>() {
+          @Override
           public Object execute(CommandContext commandContext) {
             DbSqlSession dbSqlSession = commandContext.getSession(DbSqlSession.class);
             dbSqlSession.dbSchemaDrop();

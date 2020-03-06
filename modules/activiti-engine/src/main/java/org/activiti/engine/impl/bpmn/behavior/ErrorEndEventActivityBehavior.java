@@ -28,7 +28,8 @@ public class ErrorEndEventActivityBehavior extends FlowNodeActivityBehavior {
     this.errorCode = errorCode;
   }
   
-  public void execute(ActivityExecution execution) throws Exception {    
+  @Override
+  public void execute(ActivityExecution execution) throws Exception {
     ErrorPropagation.propagateError(errorCode, execution);    
   }
 

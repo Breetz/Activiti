@@ -30,10 +30,12 @@ public class IntermediateThrowEventParseHandler extends AbstractActivityBpmnPars
 	
 	private static final Logger logger = LoggerFactory.getLogger(IntermediateThrowEventParseHandler.class);
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return ThrowEvent.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, ThrowEvent intermediateEvent) {
 
     ActivityImpl nestedActivityImpl = createActivityOnCurrentScope(bpmnParse, intermediateEvent, BpmnXMLConstants.ELEMENT_EVENT_THROW);

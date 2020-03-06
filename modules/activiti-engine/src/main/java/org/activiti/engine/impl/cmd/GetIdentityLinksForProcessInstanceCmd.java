@@ -35,6 +35,7 @@ public class GetIdentityLinksForProcessInstanceCmd implements Command<List<Ident
     this.processInstanceId = processInstanceId;
   }
   
+  @Override
   @SuppressWarnings({"unchecked", "rawtypes"})
   public List<IdentityLink> execute(CommandContext commandContext) {
     ExecutionEntity processInstance = commandContext

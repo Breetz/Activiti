@@ -34,6 +34,7 @@ public abstract class NeedsActiveProcessDefinitionCmd<T> implements Command<T>, 
     this.processDefinitionId = processDefinitionId;
   }
   
+  @Override
   public T execute(CommandContext commandContext) {
     DeploymentManager deploymentManager = commandContext.getProcessEngineConfiguration().getDeploymentManager();
     ProcessDefinitionEntity processDefinition = deploymentManager.findDeployedProcessDefinitionById(processDefinitionId);

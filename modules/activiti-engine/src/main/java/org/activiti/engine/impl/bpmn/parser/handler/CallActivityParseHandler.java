@@ -24,10 +24,12 @@ import org.activiti.engine.impl.pvm.process.ActivityImpl;
  */
 public class CallActivityParseHandler extends AbstractActivityBpmnParseHandler<CallActivity> {
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return CallActivity.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, CallActivity callActivity) {
     
     ActivityImpl activity = createActivityOnCurrentScope(bpmnParse, callActivity, BpmnXMLConstants.ELEMENT_CALL_ACTIVITY);

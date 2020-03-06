@@ -26,6 +26,7 @@ import org.activiti.engine.impl.persistence.AbstractManager;
  */
 public class MembershipEntityManager extends AbstractManager implements MembershipIdentityManager {
 
+  @Override
   public void createMembership(String userId, String groupId) {
     MembershipEntity membershipEntity = new MembershipEntity();
     membershipEntity.setUserId(userId);
@@ -38,6 +39,7 @@ public class MembershipEntityManager extends AbstractManager implements Membersh
     }
   }
 
+  @Override
   public void deleteMembership(String userId, String groupId) {
     Map<String, Object> parameters = new HashMap<String, Object>();
     parameters.put("userId", userId);

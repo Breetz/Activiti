@@ -41,7 +41,8 @@ public interface SuspensionState {
       this.name = string;
     }    
    
-    public int getStateCode() {     
+    @Override
+    public int getStateCode() {
       return stateCode;
     }
     
@@ -55,15 +56,19 @@ public interface SuspensionState {
     
     @Override
     public boolean equals(Object obj) {
-      if (this == obj)
-        return true;
-      if (obj == null)
-        return false;
-      if (getClass() != obj.getClass())
-        return false;
+      if (this == obj) {
+          return true;
+      }
+      if (obj == null) {
+          return false;
+      }
+      if (getClass() != obj.getClass()) {
+          return false;
+      }
       SuspensionStateImpl other = (SuspensionStateImpl) obj;
-      if (stateCode != other.stateCode)
-        return false;
+      if (stateCode != other.stateCode) {
+          return false;
+      }
       return true;
     }
     

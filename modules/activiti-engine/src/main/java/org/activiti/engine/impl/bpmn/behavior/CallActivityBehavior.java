@@ -70,6 +70,7 @@ public class CallActivityBehavior extends AbstractBpmnActivityBehavior implement
     this.inheritVariables = inheritVariables;
   }
 
+  @Override
   public void execute(ActivityExecution execution) throws Exception {
     
     String processDefinitonKey = this.processDefinitonKey;
@@ -116,8 +117,9 @@ public class CallActivityBehavior extends AbstractBpmnActivityBehavior implement
     try {
       subProcessInstance.start();
     } catch (Exception e) {
-        if (!ErrorPropagation.mapException(e, execution, mapExceptions, true))
+        if (!ErrorPropagation.mapException(e, execution, mapExceptions, true)) {
             throw e;
+        }
         
       }
       
@@ -131,6 +133,7 @@ public class CallActivityBehavior extends AbstractBpmnActivityBehavior implement
     return processDefinitonKey;
   }
   
+  @Override
   public void completing(DelegateExecution execution, DelegateExecution subProcessInstance) throws Exception {
     // only data.  no control flow available on this execution.
 
@@ -148,6 +151,7 @@ public class CallActivityBehavior extends AbstractBpmnActivityBehavior implement
     }
   }
 
+  @Override
   public void completed(ActivityExecution execution) throws Exception {
     // only control flow.  no sub process instance data available
     leave(execution);

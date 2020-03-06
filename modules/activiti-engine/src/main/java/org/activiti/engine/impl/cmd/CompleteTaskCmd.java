@@ -38,6 +38,7 @@ public class CompleteTaskCmd extends NeedsActiveTaskCmd<Void> {
     this.localScope = localScope;
   }
   
+  @Override
   protected Void execute(CommandContext commandContext, TaskEntity task) {
     if (variables!=null) {
     	if (localScope) {

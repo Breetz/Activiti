@@ -198,8 +198,9 @@ public class DeploymentManager {
 			  .getDeploymentEntityManager();
 	  
 	  DeploymentEntity deployment = deploymentEntityManager.findDeploymentById(deploymentId); 
-	  if(deployment == null)
-		  throw new ActivitiObjectNotFoundException("Could not find a deployment with id '" + deploymentId + "'.", DeploymentEntity.class);
+	  if(deployment == null) {
+          throw new ActivitiObjectNotFoundException("Could not find a deployment with id '" + deploymentId + "'.", DeploymentEntity.class);
+      }
 
     // Remove any process definition from the cache
     List<ProcessDefinition> processDefinitions = new ProcessDefinitionQueryImpl(Context.getCommandContext())

@@ -32,13 +32,14 @@ public class EnumFormType extends AbstractFormType {
     this.values = values;
   }
 
+  @Override
   public String getName() {
     return "enum";
   }
   
   @Override
   public Object getInformation(String key) {
-    if (key.equals("values")) {
+    if ("values".equals(key)) {
       return values;
     }
     return null;

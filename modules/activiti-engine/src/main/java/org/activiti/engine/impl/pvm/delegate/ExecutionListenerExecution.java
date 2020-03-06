@@ -21,6 +21,7 @@ import org.activiti.engine.impl.pvm.PvmProcessElement;
  */
 public interface ExecutionListenerExecution extends DelegateExecution {
   
+  @Override
   String getEventName();
 
   PvmProcessElement getEventSource();

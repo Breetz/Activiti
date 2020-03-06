@@ -31,6 +31,7 @@ import org.activiti.engine.task.Event;
  */
 public class CommentEntityManager extends AbstractManager {
   
+  @Override
   public void delete(PersistentObject persistentObject) {
     checkHistoryEnabled();
     super.delete(persistentObject);
@@ -51,6 +52,7 @@ public class CommentEntityManager extends AbstractManager {
     }
   }
 
+  @Override
   public void insert(PersistentObject persistentObject) {
     checkHistoryEnabled();
     super.insert(persistentObject);

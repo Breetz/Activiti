@@ -38,6 +38,7 @@ public class AcquireJobsCmd implements Command<AcquiredJobs> {
     this.jobExecutor = jobExecutor;
   }
   
+  @Override
   public AcquiredJobs execute(CommandContext commandContext) {
     
     String lockOwner = jobExecutor.getLockOwner();

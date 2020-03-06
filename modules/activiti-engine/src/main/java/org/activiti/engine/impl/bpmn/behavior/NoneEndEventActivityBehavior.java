@@ -20,6 +20,7 @@ import org.activiti.engine.impl.pvm.delegate.ActivityExecution;
  */
 public class NoneEndEventActivityBehavior extends FlowNodeActivityBehavior {
   
+  @Override
   public void execute(ActivityExecution execution) throws Exception {
     execution.end();
   }

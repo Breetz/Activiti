@@ -294,7 +294,7 @@ public abstract class ReflectUtil {
   public static boolean isGetter(Method method) {
     String name = method.getName();
     Class< ? > type = method.getReturnType();
-    Class< ? > params[] = method.getParameterTypes();
+    Class<?>[] params = method.getParameterTypes();
 
     if (!GETTER_PATTERN.matcher(name).matches()) {
       return false;
@@ -302,7 +302,7 @@ public abstract class ReflectUtil {
 
     // special for isXXX boolean
     if (name.startsWith("is")) {
-      return params.length == 0 && type.getSimpleName().equalsIgnoreCase("boolean");
+      return params.length == 0 && "boolean".equalsIgnoreCase(type.getSimpleName());
     }
 
     return params.length == 0 && !type.equals(Void.TYPE);
@@ -311,7 +311,7 @@ public abstract class ReflectUtil {
   public static boolean isSetter(Method method, boolean allowBuilderPattern) {
     String name = method.getName();
     Class< ? > type = method.getReturnType();
-    Class< ? > params[] = method.getParameterTypes();
+    Class<?>[] params = method.getParameterTypes();
 
     if (!SETTER_PATTERN.matcher(name).matches()) {
       return false;

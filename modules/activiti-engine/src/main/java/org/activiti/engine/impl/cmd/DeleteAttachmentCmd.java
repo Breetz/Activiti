@@ -36,6 +36,7 @@ public class DeleteAttachmentCmd implements Command<Object>, Serializable {
     this.attachmentId = attachmentId;
   }
 
+  @Override
   public Object execute(CommandContext commandContext) {
     AttachmentEntity attachment = commandContext
       .getDbSqlSession()

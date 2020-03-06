@@ -42,9 +42,11 @@ public class PropertyEntity implements PersistentObject, HasRevision, Serializab
   public String getName() {
     return name;
   }
+  @Override
   public int getRevision() {
     return revision;
   }
+  @Override
   public void setRevision(int revision) {
     this.revision = revision;
   }
@@ -57,18 +59,22 @@ public class PropertyEntity implements PersistentObject, HasRevision, Serializab
   
   // persistent object methods ////////////////////////////////////////////////
 
+  @Override
   public String getId() {
     return name;
   }
 
+  @Override
   public Object getPersistentState() {
     return value;
   }
 
+  @Override
   public void setId(String id) {
     throw new ActivitiException("only provided id generation allowed for properties");
   }
   
+  @Override
   public int getRevisionNext() {
     return revision+1;
   }

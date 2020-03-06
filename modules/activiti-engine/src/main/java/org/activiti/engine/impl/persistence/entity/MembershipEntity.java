@@ -28,14 +28,17 @@ public class MembershipEntity implements PersistentObject, Serializable {
   protected String userId;
   protected String groupId;
   
+  @Override
   public Object getPersistentState() {
     // membership is not updatable
     return MembershipEntity.class;
   }
+  @Override
   public String getId() {
     // membership doesn't have an id
     return null;
   }
+  @Override
   public void setId(String id) {
     // membership doesn't have an id
   }

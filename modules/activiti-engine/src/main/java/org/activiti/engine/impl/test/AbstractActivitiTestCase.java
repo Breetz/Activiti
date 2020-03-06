@@ -161,6 +161,7 @@ public abstract class AbstractActivitiTestCase extends PvmTestCase {
       CommandExecutor commandExecutor = ((ProcessEngineImpl)processEngine).getProcessEngineConfiguration().getCommandExecutor();
       CommandConfig config = new CommandConfig().transactionNotSupported();
       commandExecutor.execute(config, new Command<Object>() {
+        @Override
         public Object execute(CommandContext commandContext) {
           DbSqlSession session = commandContext.getSession(DbSqlSession.class);
           session.dbSchemaDrop();

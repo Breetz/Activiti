@@ -38,6 +38,7 @@ public class SetUserPictureCmd implements Command<Object>, Serializable {
     this.picture = picture;
   }
 
+  @Override
   public Object execute(CommandContext commandContext) {
     if(userId == null) {
       throw new ActivitiIllegalArgumentException("userId is null");

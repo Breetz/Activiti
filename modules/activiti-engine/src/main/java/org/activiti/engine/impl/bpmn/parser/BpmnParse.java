@@ -316,7 +316,7 @@ public class BpmnParse implements BpmnXMLConstants {
     if (this.importers.containsKey(theImport.getImportType())) {
       return this.importers.get(theImport.getImportType());
     } else {
-      if (theImport.getImportType().equals("http://schemas.xmlsoap.org/wsdl/")) {
+      if ("http://schemas.xmlsoap.org/wsdl/".equals(theImport.getImportType())) {
         Class< ? > wsdlImporterClass;
         try {
           wsdlImporterClass = Class.forName("org.activiti.engine.impl.webservice.CxfWSDLImporter", true, Thread.currentThread().getContextClassLoader());

@@ -25,10 +25,12 @@ public class AsyncContinuationJobHandler implements JobHandler {
   
   public final static String TYPE = "async-continuation";
 
+  @Override
   public String getType() {
     return TYPE;
   }
   
+  @Override
   public void execute(JobEntity job, String configuration, ExecutionEntity execution, CommandContext commandContext) {
     // ATM only AtomicOperationTransitionCreateScope can be performed asynchronously 
     AtomicOperation atomicOperation = AtomicOperation.TRANSITION_CREATE_SCOPE;

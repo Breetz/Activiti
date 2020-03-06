@@ -21,18 +21,22 @@ public class LongType implements VariableType {
 
   private static final long serialVersionUID = 1L;
   
+  @Override
   public String getTypeName() {
     return "long";
   }
 
+  @Override
   public boolean isCachable() {
     return true;
   }
 
+  @Override
   public Object getValue(ValueFields valueFields) {
     return valueFields.getLongValue();
   }
 
+  @Override
   public void setValue(Object value, ValueFields valueFields) {
     valueFields.setLongValue((Long) value);
     if (value!=null) {
@@ -42,6 +46,7 @@ public class LongType implements VariableType {
     }
   }
 
+  @Override
   public boolean isAbleToStore(Object value) {
     if (value==null) {
       return true;

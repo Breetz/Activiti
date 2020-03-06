@@ -24,10 +24,12 @@ import org.activiti.engine.impl.pvm.process.ActivityImpl;
  */
 public class EventBasedGatewayParseHandler extends AbstractActivityBpmnParseHandler<EventGateway> {
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return EventGateway.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, EventGateway gateway) {
     ActivityImpl activity = createActivityOnCurrentScope(bpmnParse, gateway, BpmnXMLConstants.ELEMENT_GATEWAY_EVENT);   
     activity.setActivityBehavior(bpmnParse.getActivityBehaviorFactory().createEventBasedGatewayActivityBehavior(gateway));

@@ -41,6 +41,7 @@ public class IdentityInfoEntity implements PersistentObject, HasRevision, Serial
   protected String parentId;
   protected Map<String, String> details;
 
+  @Override
   public Object getPersistentState() {
     Map<String, Object> persistentState = new HashMap<String, Object>();
     persistentState.put("value", value);
@@ -48,22 +49,27 @@ public class IdentityInfoEntity implements PersistentObject, HasRevision, Serial
     return persistentState;
   }
   
+  @Override
   public int getRevisionNext() {
     return revision+1;
   }
   
+  @Override
   public String getId() {
     return id;
   }
 
+  @Override
   public void setId(String id) {
     this.id = id;
   }
   
+  @Override
   public int getRevision() {
     return revision;
   }
 
+  @Override
   public void setRevision(int revision) {
     this.revision = revision;
   }

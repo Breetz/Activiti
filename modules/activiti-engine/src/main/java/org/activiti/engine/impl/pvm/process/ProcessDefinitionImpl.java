@@ -46,6 +46,7 @@ public class ProcessDefinitionImpl extends ScopeImpl implements PvmProcessDefini
     processDefinition = this;
   }
 
+  @Override
   public PvmProcessInstance createProcessInstance() {
     if(initial == null) {
       throw new ActivitiException("Process '"+name+"' has no default start activity (e.g. none start event), hence you cannot use 'startProcessInstanceBy...' but have to start it using one of the modeled start events (e.g. message start events).");
@@ -106,10 +107,12 @@ public class ProcessDefinitionImpl extends ScopeImpl implements PvmProcessDefini
     return new ExecutionImpl(startActivity);
   }
 
+  @Override
   public String getDiagramResourceName() {
     return null;
   }
 
+  @Override
   public String getDeploymentId() {
     return null;
   }
@@ -133,6 +136,7 @@ public class ProcessDefinitionImpl extends ScopeImpl implements PvmProcessDefini
   
   // getters and setters //////////////////////////////////////////////////////
   
+  @Override
   public ActivityImpl getInitial() {
     return initial;
   }
@@ -141,10 +145,12 @@ public class ProcessDefinitionImpl extends ScopeImpl implements PvmProcessDefini
     this.initial = initial;
   }
   
+  @Override
   public String toString() {
     return "ProcessDefinition("+id+")";
   }
 
+  @Override
   public String getName() {
     return name;
   }
@@ -153,6 +159,7 @@ public class ProcessDefinitionImpl extends ScopeImpl implements PvmProcessDefini
     this.name = name;
   }
   
+  @Override
   public String getKey() {
     return key;
   }
@@ -161,6 +168,7 @@ public class ProcessDefinitionImpl extends ScopeImpl implements PvmProcessDefini
     this.key = key;
   }
 
+  @Override
   public String getDescription() {
     return (String) getProperty("documentation");
   }

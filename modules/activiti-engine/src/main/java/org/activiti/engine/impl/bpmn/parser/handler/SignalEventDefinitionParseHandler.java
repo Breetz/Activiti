@@ -28,10 +28,12 @@ import org.activiti.engine.impl.pvm.process.ActivityImpl;
  */
 public class SignalEventDefinitionParseHandler extends AbstractBpmnParseHandler<SignalEventDefinition> {
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return SignalEventDefinition.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, SignalEventDefinition signalDefinition) {
     
     Signal signal = null;

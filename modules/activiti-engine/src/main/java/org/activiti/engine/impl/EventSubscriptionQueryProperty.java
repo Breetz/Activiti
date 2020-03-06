@@ -35,6 +35,7 @@ public class EventSubscriptionQueryProperty implements QueryProperty {
     this.propertyName = propertyName;
   }
 
+  @Override
   public String getName() {
     return propertyName;
   }

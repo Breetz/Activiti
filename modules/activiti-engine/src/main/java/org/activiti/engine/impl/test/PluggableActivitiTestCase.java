@@ -38,6 +38,7 @@ public abstract class PluggableActivitiTestCase extends AbstractActivitiTestCase
   
   protected static ProcessEngine cachedProcessEngine;
 
+  @Override
   protected void initializeProcessEngine() {
     if (cachedProcessEngine == null) {
       

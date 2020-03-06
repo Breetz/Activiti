@@ -67,6 +67,7 @@ public abstract class AbstractBpmnParseHandler<T extends BaseElement> implements
   
   public static final String PROPERTYNAME_TIMER_DECLARATION = "timerDeclarations";
   
+  @Override
   public Set<Class< ? extends BaseElement>> getHandledTypes() {
     Set<Class< ? extends BaseElement>> types = new HashSet<Class<? extends BaseElement>>();
     types.add(getHandledType());
@@ -75,6 +76,7 @@ public abstract class AbstractBpmnParseHandler<T extends BaseElement> implements
   
   protected abstract Class<? extends BaseElement> getHandledType();
   
+  @Override
   @SuppressWarnings("unchecked")
   public void parse(BpmnParse bpmnParse, BaseElement element) {
     T baseElement = (T) element;
@@ -148,9 +150,9 @@ public abstract class AbstractBpmnParseHandler<T extends BaseElement> implements
       scope.setProperty(PROPERTYNAME_EVENT_SUBSCRIPTION_DECLARATION, eventDefinitions);
     } else {
       // if this is a message event, validate that it is the only one with the provided name for this scope
-      if(subscription.getEventType().equals("message")) {
+      if("message".equals(subscription.getEventType())) {
         for (EventSubscriptionDeclaration eventDefinition : eventDefinitions) {
-          if(eventDefinition.getEventType().equals("message")
+          if("message".equals(eventDefinition.getEventType())
             && eventDefinition.getEventName().equals(subscription.getEventName()) 
             && eventDefinition.isStartEvent() == subscription.isStartEvent()) {
             
@@ -232,7 +234,7 @@ public abstract class AbstractBpmnParseHandler<T extends BaseElement> implements
     } else if (targetActivity == null) {
       //bpmnModel.addProblem("Invalid reference targetRef '" + association.getTargetRef() + "' of association element ", association.getId());
     } else {      
-      if (sourceActivity.getProperty("type").equals("compensationBoundaryCatch")) {
+      if ("compensationBoundaryCatch".equals(sourceActivity.getProperty("type"))) {
         Object isForCompensation = targetActivity.getProperty(PROPERTYNAME_IS_FOR_COMPENSATION);          
         if (isForCompensation == null || !(Boolean) isForCompensation) {
           logger.warn("compensation boundary catch must be connected to element with isForCompensation=true");

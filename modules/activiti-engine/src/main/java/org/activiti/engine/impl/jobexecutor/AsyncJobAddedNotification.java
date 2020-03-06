@@ -36,6 +36,7 @@ public class AsyncJobAddedNotification implements TransactionListener {
     this.asyncExecutor = asyncExecutor;
   }
 
+  @Override
   public void execute(CommandContext commandContext) {
     log.debug("notifying job executor of new job");
     asyncExecutor.executeAsyncJob(job);

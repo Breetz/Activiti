@@ -41,6 +41,7 @@ public class AcquireAsyncJobsDueRunnable implements Runnable {
     this.asyncExecutor = asyncExecutor;
   }
 
+  @Override
   public synchronized void run() {
     log.info("starting to acquire async jobs due");
 

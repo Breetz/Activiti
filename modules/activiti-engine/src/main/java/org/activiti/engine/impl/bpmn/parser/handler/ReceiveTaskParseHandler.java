@@ -24,10 +24,12 @@ import org.activiti.engine.impl.pvm.process.ActivityImpl;
  */
 public class ReceiveTaskParseHandler extends AbstractActivityBpmnParseHandler<ReceiveTask> {
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return ReceiveTask.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, ReceiveTask receiveTask) {
     ActivityImpl activity = createActivityOnCurrentScope(bpmnParse, receiveTask, BpmnXMLConstants.ELEMENT_TASK_RECEIVE);
     activity.setActivityBehavior(bpmnParse.getActivityBehaviorFactory().createReceiveTaskActivityBehavior(receiveTask));

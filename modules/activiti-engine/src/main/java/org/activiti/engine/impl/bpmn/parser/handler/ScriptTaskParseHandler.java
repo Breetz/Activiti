@@ -29,10 +29,12 @@ public class ScriptTaskParseHandler extends AbstractActivityBpmnParseHandler<Scr
 	
 	private static final Logger logger = LoggerFactory.getLogger(ScriptTaskParseHandler.class);
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return ScriptTask.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, ScriptTask scriptTask) {
 
     if (StringUtils.isEmpty(scriptTask.getScript())) {

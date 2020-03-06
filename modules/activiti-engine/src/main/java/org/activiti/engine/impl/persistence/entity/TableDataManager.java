@@ -34,6 +34,7 @@ import org.activiti.engine.history.HistoricVariableUpdate;
 import org.activiti.engine.identity.Group;
 import org.activiti.engine.identity.User;
 import org.activiti.engine.impl.TablePageQueryImpl;
+import org.activiti.engine.impl.db.DbSqlSession;
 import org.activiti.engine.impl.db.PersistentObject;
 import org.activiti.engine.impl.persistence.AbstractManager;
 import org.activiti.engine.management.TableMetaData;
@@ -180,7 +181,7 @@ public class TableDataManager extends AbstractManager {
           }
         }
         
-        tables = databaseMetaData.getTables(catalog, schema, tableNameFilter, getDbSqlSession().JDBC_METADATA_TABLE_TYPES);
+        tables = databaseMetaData.getTables(catalog, schema, tableNameFilter, DbSqlSession.JDBC_METADATA_TABLE_TYPES);
         while (tables.next()) {
           String tableName = tables.getString("TABLE_NAME");
           tableName = tableName.toUpperCase();

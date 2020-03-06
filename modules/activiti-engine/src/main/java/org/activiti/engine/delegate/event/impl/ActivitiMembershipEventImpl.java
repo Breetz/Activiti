@@ -32,7 +32,8 @@ public class ActivitiMembershipEventImpl extends ActivitiEventImpl implements Ac
 	  this.userId = userId;
   }
 	
-	public String getUserId() {
+	@Override
+    public String getUserId() {
 	  return userId;
   }
 	
@@ -40,7 +41,8 @@ public class ActivitiMembershipEventImpl extends ActivitiEventImpl implements Ac
 	  this.groupId = groupId;
   }
 	
-	public String getGroupId() {
+	@Override
+    public String getGroupId() {
 	  return groupId;
   }
 }

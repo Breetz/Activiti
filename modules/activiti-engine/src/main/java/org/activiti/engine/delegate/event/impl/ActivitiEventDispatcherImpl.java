@@ -36,11 +36,13 @@ public class ActivitiEventDispatcherImpl implements ActivitiEventDispatcher {
 		eventSupport = new ActivitiEventSupport();
 	}
 
-	public void setEnabled(boolean enabled) {
+	@Override
+    public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public boolean isEnabled() {
+	@Override
+    public boolean isEnabled() {
 		return enabled;
 	}
 

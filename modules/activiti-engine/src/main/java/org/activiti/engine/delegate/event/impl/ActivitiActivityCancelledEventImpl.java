@@ -32,7 +32,8 @@ public class ActivitiActivityCancelledEventImpl extends ActivitiActivityEventImp
 	  this.cause = cause;
   }
 	
-	public Object getCause() {
+	@Override
+    public Object getCause() {
 	  return cause;
   }
 

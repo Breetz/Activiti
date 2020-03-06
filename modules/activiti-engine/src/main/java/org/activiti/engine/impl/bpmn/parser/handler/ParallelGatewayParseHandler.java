@@ -24,10 +24,12 @@ import org.activiti.engine.impl.pvm.process.ActivityImpl;
  */
 public class ParallelGatewayParseHandler extends AbstractActivityBpmnParseHandler<ParallelGateway> {
   
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return ParallelGateway.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, ParallelGateway gateway) {
     ActivityImpl activity = createActivityOnCurrentScope(bpmnParse, gateway, BpmnXMLConstants.ELEMENT_GATEWAY_PARALLEL);
     

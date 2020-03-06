@@ -33,7 +33,8 @@ public interface Comment extends HistoricData {
   /** reference to the user that made the comment */ 
   String getUserId();
 
-  /** time and date when the user made the comment */ 
+  /** time and date when the user made the comment */
+  @Override
   Date getTime();
 
   /** reference to the task on which this comment was made */ 

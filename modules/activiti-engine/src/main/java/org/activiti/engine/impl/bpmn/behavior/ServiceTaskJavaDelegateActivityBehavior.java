@@ -36,11 +36,13 @@ public class ServiceTaskJavaDelegateActivityBehavior extends TaskActivityBehavio
     this.javaDelegate = javaDelegate;
   }
 
+  @Override
   public void execute(ActivityExecution execution) throws Exception {
     execute((DelegateExecution) execution);
     leave(execution);
   }
   
+  @Override
   public void notify(DelegateExecution execution) throws Exception {
     execute((DelegateExecution) execution);
   }

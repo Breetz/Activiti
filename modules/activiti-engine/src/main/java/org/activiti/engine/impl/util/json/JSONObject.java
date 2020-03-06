@@ -100,6 +100,7 @@ public class JSONObject {
          * so the clone method returns itself.
          * @return     NULL.
          */
+        @Override
         protected final Object clone() {
             return this;
         }
@@ -111,6 +112,7 @@ public class JSONObject {
          * @return true if the object parameter is the JSONObject.NULL object
          *  or null.
          */
+        @Override
         public boolean equals(Object object) {
             return object == null || object == this;
         }
@@ -120,6 +122,7 @@ public class JSONObject {
          * Get the "null" string value.
          * @return The string "null".
          */
+        @Override
         public String toString() {
             return "null";
         }
@@ -285,7 +288,7 @@ public class JSONObject {
      * @param names An array of strings, the names of the fields to be obtained
      * from the object.
      */
-    public JSONObject(Object object, String names[]) {
+    public JSONObject(Object object, String[] names) {
         this();
         Class c = object.getClass();
         for (int i = 0; i < names.length; i += 1) {
@@ -422,11 +425,11 @@ public class JSONObject {
         Object o = get(key);
         if (o.equals(Boolean.FALSE) ||
                 (o instanceof String &&
-                ((String)o).equalsIgnoreCase("false"))) {
+                "false".equalsIgnoreCase((String)o))) {
             return false;
         } else if (o.equals(Boolean.TRUE) ||
                 (o instanceof String &&
-                ((String)o).equalsIgnoreCase("true"))) {
+                "true".equalsIgnoreCase((String)o))) {
             return true;
         }
         throw new JSONException("JSONObject[" + quote(key) +
@@ -916,8 +919,8 @@ public class JSONObject {
                     String name = method.getName();
                     String key = "";
                     if (name.startsWith("get")) {
-                    	if (name.equals("getClass") || 
-                    			name.equals("getDeclaringClass")) {
+                    	if ("getClass".equals(name) ||
+                    			"getDeclaringClass".equals(name)) {
                     		key = "";
                     	} else {
                     		key = name.substring(3);
@@ -1185,16 +1188,16 @@ public class JSONObject {
      * @return A simple JSON value.
      */
     static public Object stringToValue(String s) {
-        if (s.equals("")) {
+        if ("".equals(s)) {
             return s;
         }
-        if (s.equalsIgnoreCase("true")) {
+        if ("true".equalsIgnoreCase(s)) {
             return Boolean.TRUE;
         }
-        if (s.equalsIgnoreCase("false")) {
+        if ("false".equalsIgnoreCase(s)) {
             return Boolean.FALSE;
         }
-        if (s.equalsIgnoreCase("null")) {
+        if ("null".equalsIgnoreCase(s)) {
             return JSONObject.NULL;
         }
 
@@ -1287,6 +1290,7 @@ public class JSONObject {
      *  with <code>{</code>&nbsp;<small>(left brace)</small> and ending
      *  with <code>}</code>&nbsp;<small>(right brace)</small>.
      */
+    @Override
     public String toString() {
         try {
             Iterator     keys = keys();

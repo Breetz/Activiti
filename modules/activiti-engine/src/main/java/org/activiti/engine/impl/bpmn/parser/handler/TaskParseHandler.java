@@ -24,10 +24,12 @@ import org.activiti.engine.impl.pvm.process.ActivityImpl;
  */
 public class TaskParseHandler extends AbstractActivityBpmnParseHandler<Task> {
    
+  @Override
   public Class< ? extends BaseElement> getHandledType() {
     return Task.class;
   }
   
+  @Override
   protected void executeParse(BpmnParse bpmnParse, Task task) {
     ActivityImpl activity = createActivityOnCurrentScope(bpmnParse, task, BpmnXMLConstants.ELEMENT_TASK);
     activity.setActivityBehavior(bpmnParse.getActivityBehaviorFactory().createTaskActivityBehavior(task));

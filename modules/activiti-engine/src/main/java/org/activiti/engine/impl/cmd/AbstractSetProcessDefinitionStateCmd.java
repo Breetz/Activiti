@@ -65,6 +65,7 @@ public abstract class AbstractSetProcessDefinitionStateCmd implements Command<Vo
     this.tenantId = tenantId;
   }
   
+  @Override
   public Void execute(CommandContext commandContext) {
     
     List<ProcessDefinitionEntity> processDefinitions = findProcessDefinition(commandContext);

@@ -83,10 +83,12 @@ public class ActivityImpl extends ScopeImpl implements PvmActivity, HasDIBounds 
     return transition;
   }
   
+  @Override
   public TransitionImpl findOutgoingTransition(String transitionId) {
     return namedOutgoingTransitions.get(transitionId);
   }
   
+  @Override
   public String toString() {
     return "Activity("+id+")";
   }
@@ -115,6 +117,7 @@ public class ActivityImpl extends ScopeImpl implements PvmActivity, HasDIBounds 
 
   // getters and setters //////////////////////////////////////////////////////
 
+  @Override
   @SuppressWarnings("unchecked")
   public List<PvmTransition> getOutgoingTransitions() {
     return (List) outgoingTransitions;
@@ -128,10 +131,12 @@ public class ActivityImpl extends ScopeImpl implements PvmActivity, HasDIBounds 
     this.activityBehavior = activityBehavior;
   }
 
+  @Override
   public ScopeImpl getParent() {
     return parent;
   }
 
+  @Override
   @SuppressWarnings("unchecked")
   public List<PvmTransition> getIncomingTransitions() {
     return (List) incomingTransitions;
@@ -153,38 +158,47 @@ public class ActivityImpl extends ScopeImpl implements PvmActivity, HasDIBounds 
     this.isScope = isScope;
   }
 
+  @Override
   public int getX() {
     return x;
   }
   
+  @Override
   public void setX(int x) {
     this.x = x;
   }
 
+  @Override
   public int getY() {
     return y;
   }
 
+  @Override
   public void setY(int y) {
     this.y = y;
   }
 
+  @Override
   public int getWidth() {
     return width;
   }
 
+  @Override
   public void setWidth(int width) {
     this.width = width;
   }
 
+  @Override
   public int getHeight() {
     return height;
   }
 
+  @Override
   public void setHeight(int height) {
     this.height = height;
   }
   
+  @Override
   public boolean isAsync() {
     return isAsync;
   }
@@ -193,6 +207,7 @@ public class ActivityImpl extends ScopeImpl implements PvmActivity, HasDIBounds 
     this.isAsync = isAsync;
   }
   
+  @Override
   public boolean isExclusive() {
     return isExclusive;
   }

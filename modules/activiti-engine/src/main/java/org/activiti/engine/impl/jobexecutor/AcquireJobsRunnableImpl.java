@@ -41,6 +41,7 @@ public class AcquireJobsRunnableImpl implements AcquireJobsRunnable {
     this.jobExecutor = jobExecutor;
   }
 
+  @Override
   public synchronized void run() {
     log.info("{} starting to acquire jobs", jobExecutor.getName());
 
@@ -106,6 +107,7 @@ public class AcquireJobsRunnableImpl implements AcquireJobsRunnable {
     log.info("{} stopped job acquisition", jobExecutor.getName());
   }
 
+  @Override
   public void stop() {
     synchronized (MONITOR) {
       isInterrupted = true; 
@@ -115,7 +117,8 @@ public class AcquireJobsRunnableImpl implements AcquireJobsRunnable {
       }
   }
 
-  public void jobWasAdded() {    
+  @Override
+  public void jobWasAdded() {
     isJobAdded = true;
     if(isWaiting.compareAndSet(true, false)) { 
       // ensures we only notify once

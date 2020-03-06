@@ -35,6 +35,7 @@ public class AcquireAsyncJobsDueCmd implements Command<AcquiredJobEntities> {
     this.asyncExecutor = asyncExecutor;
   }
   
+  @Override
   public AcquiredJobEntities execute(CommandContext commandContext) {
     AcquiredJobEntities acquiredJobs = new AcquiredJobEntities();
     List<JobEntity> jobs = commandContext

@@ -60,13 +60,14 @@ public class ShellActivityBehavior extends AbstractBpmnActivityBehavior {
     String redirectErrorStr = getStringFromField(redirectError, execution);
     String cleanEnvStr = getStringFromField(cleanEnv, execution);
 
-    waitFlag = waitStr == null || waitStr.equals("true");
-    redirectErrorFlag = redirectErrorStr != null && redirectErrorStr.equals("true");
-    cleanEnvBoolan = cleanEnvStr != null && cleanEnvStr.equals("true");
+    waitFlag = waitStr == null || "true".equals(waitStr);
+    redirectErrorFlag = redirectErrorStr != null && "true".equals(redirectErrorStr);
+    cleanEnvBoolan = cleanEnvStr != null && "true".equals(cleanEnvStr);
     directoryStr = getStringFromField(directory, execution);
 
   }
 
+  @Override
   public void execute(ActivityExecution execution) {
 
     readFields(execution);
@@ -74,16 +75,21 @@ public class ShellActivityBehavior extends AbstractBpmnActivityBehavior {
     List<String> argList = new ArrayList<String>();
     argList.add(commandStr);
 
-    if (arg1Str != null)
-      argList.add(arg1Str);
-    if (arg2Str != null)
-      argList.add(arg2Str);
-    if (arg3Str != null)
-      argList.add(arg3Str);
-    if (arg4Str != null)
-      argList.add(arg4Str);
-    if (arg5Str != null)
-      argList.add(arg5Str);
+    if (arg1Str != null) {
+        argList.add(arg1Str);
+    }
+    if (arg2Str != null) {
+        argList.add(arg2Str);
+    }
+    if (arg3Str != null) {
+        argList.add(arg3Str);
+    }
+    if (arg4Str != null) {
+        argList.add(arg4Str);
+    }
+    if (arg5Str != null) {
+        argList.add(arg5Str);
+    }
 
     ProcessBuilder processBuilder = new ProcessBuilder(argList);
 
@@ -93,8 +99,9 @@ public class ShellActivityBehavior extends AbstractBpmnActivityBehavior {
         Map<String, String> env = processBuilder.environment();
         env.clear();
       }
-      if (directoryStr != null && directoryStr.length() > 0)
-        processBuilder.directory(new File(directoryStr));
+      if (directoryStr != null && directoryStr.length() > 0) {
+          processBuilder.directory(new File(directoryStr));
+      }
 
       Process process = processBuilder.start();
 

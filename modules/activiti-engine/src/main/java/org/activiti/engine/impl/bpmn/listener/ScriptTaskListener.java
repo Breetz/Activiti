@@ -35,7 +35,8 @@ public class ScriptTaskListener implements TaskListener {
   
   protected boolean autoStoreVariables;
 
-	public void notify(DelegateTask delegateTask) {
+	@Override
+    public void notify(DelegateTask delegateTask) {
 		validateParameters();
 
 		ScriptingEngines scriptingEngines = Context.getProcessEngineConfiguration().getScriptingEngines();

@@ -53,10 +53,12 @@ public class TenantAwareDataSource implements DataSource {
     dataSources.remove(key);
   }
   
+  @Override
   public Connection getConnection() throws SQLException {
     return getCurrentDataSource().getConnection();
   }
 
+  @Override
   public Connection getConnection(String username, String password) throws SQLException {
     return  getCurrentDataSource().getConnection(username, password);
   }
@@ -70,6 +72,7 @@ public class TenantAwareDataSource implements DataSource {
     return dataSource;
   }
 
+  @Override
   public int getLoginTimeout() throws SQLException {
     return 0; // Default
   }
@@ -78,6 +81,7 @@ public class TenantAwareDataSource implements DataSource {
     return Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
   }
 
+  @Override
   @SuppressWarnings("unchecked")
   public <T> T unwrap(Class<T> iface) throws SQLException {
     if (iface.isInstance(this)) {
@@ -86,6 +90,7 @@ public class TenantAwareDataSource implements DataSource {
     throw new SQLException("Cannot unwrap " + getClass().getName() + " as an instance of " + iface.getName()); 
   }
 
+  @Override
   public boolean isWrapperFor(Class<?> iface) throws SQLException {
     return iface.isInstance(this);
   }
@@ -100,14 +105,17 @@ public class TenantAwareDataSource implements DataSource {
   
   // Unsupported //////////////////////////////////////////////////////////
   
+  @Override
   public PrintWriter getLogWriter() throws SQLException {
     throw new UnsupportedOperationException();
   }
 
+  @Override
   public void setLogWriter(PrintWriter out) throws SQLException {
     throw new UnsupportedOperationException();
   }
   
+  @Override
   public void setLoginTimeout(int seconds) throws SQLException {
     throw new UnsupportedOperationException();
   }

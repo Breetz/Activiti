@@ -57,7 +57,8 @@ public class ParallelGatewayActivityBehavior extends GatewayActivityBehavior {
   
   private static Logger log = LoggerFactory.getLogger(ParallelGatewayActivityBehavior.class);
 
-  public void execute(ActivityExecution execution) throws Exception { 
+  @Override
+  public void execute(ActivityExecution execution) throws Exception {
     
     // Join
     PvmActivity activity = execution.getActivity();

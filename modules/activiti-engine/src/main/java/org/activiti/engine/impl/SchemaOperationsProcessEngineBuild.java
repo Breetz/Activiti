@@ -21,6 +21,7 @@ import org.activiti.engine.impl.interceptor.CommandContext;
  */
 public final class SchemaOperationsProcessEngineBuild implements Command<Object> {
 
+  @Override
   public Object execute(CommandContext commandContext) {
     commandContext
       .getSession(DbSqlSession.class)

@@ -33,14 +33,17 @@ import org.activiti.engine.impl.javax.el.VariableMapper;
  */
 public class ParsingElContext extends ELContext {
 
+  @Override
   public ELResolver getELResolver() {
     return null;
   }
 
+  @Override
   public FunctionMapper getFunctionMapper() {
     return null;
   }
 
+  @Override
   public VariableMapper getVariableMapper() {
     return null;
   }

@@ -67,6 +67,7 @@ public class WSService implements BpmnInterfaceImplementation {
   /**
    * {@inheritDoc}
    */
+  @Override
   public String getName() {
     return this.name;
   }

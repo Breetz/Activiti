@@ -24,6 +24,7 @@ public class DoubleFormType extends AbstractFormType {
 	
   private static final long serialVersionUID = 1L;
 
+  @Override
   public String getName() {
     return "double";
   }
@@ -32,6 +33,7 @@ public class DoubleFormType extends AbstractFormType {
     return "plain/text";
   }
 
+  @Override
   public Object convertFormValueToModelValue(String propertyValue) {
     if (propertyValue==null || "".equals(propertyValue)) {
       return null;
@@ -39,6 +41,7 @@ public class DoubleFormType extends AbstractFormType {
     return new Double(propertyValue);
   }
 
+  @Override
   public String convertModelValueToFormValue(Object modelValue) {
     if (modelValue==null) {
       return null;

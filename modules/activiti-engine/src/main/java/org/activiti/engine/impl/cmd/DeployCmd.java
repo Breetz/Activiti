@@ -43,6 +43,7 @@ public class DeployCmd<T> implements Command<Deployment>, Serializable {
     this.deploymentBuilder = deploymentBuilder;
   }
 
+  @Override
   public Deployment execute(CommandContext commandContext) {
     DeploymentEntity deployment = deploymentBuilder.getDeployment();
 
@@ -129,7 +130,9 @@ public class DeployCmd<T> implements Command<Deployment>, Serializable {
     for (String resourceName: resources.keySet()) {
       ResourceEntity savedResource = savedResources.get(resourceName);
       
-      if(savedResource == null) return true;
+      if(savedResource == null) {
+          return true;
+      }
       
       if(!savedResource.isGenerated()) {
         ResourceEntity resource = resources.get(resourceName);

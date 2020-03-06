@@ -224,11 +224,11 @@ public class JSONArray {
         Object o = get(index);
         if (o.equals(Boolean.FALSE) ||
                 (o instanceof String &&
-                ((String)o).equalsIgnoreCase("false"))) {
+                "false".equalsIgnoreCase((String)o))) {
             return false;
         } else if (o.equals(Boolean.TRUE) ||
                 (o instanceof String &&
-                ((String)o).equalsIgnoreCase("true"))) {
+                "true".equalsIgnoreCase((String)o))) {
             return true;
         }
         throw new JSONException("JSONArray[" + index + "] is not a Boolean.");
@@ -814,6 +814,7 @@ public class JSONArray {
      * @return a printable, displayable, transmittable
      *  representation of the array.
      */
+    @Override
     public String toString() {
         try {
             return '[' + join(",") + ']';
